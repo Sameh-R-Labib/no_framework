@@ -1,0 +1,24 @@
+/web/uploads/
+*.php~
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/app/phpunit.xml
+/build/
+!build/.gitkeep
+/vendor/
+!vendor/.gitkeep
+/bin/
+!bin/.gitkeep
+/composer.phar
+
+#stuff I added
+.DS_Store
+*.zip
+*.gz
+log/*.log
+log/*.log.[0-9]
