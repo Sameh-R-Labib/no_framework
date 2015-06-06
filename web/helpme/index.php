@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <!--
-This page is a placeholder.
+sample remark in html
 -->
 <html>
     <head>
-        <title>Home of www.BuscompanyX.com</title>
+        <title>helpme home page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     </head>
     <body>
-	<div>Initial content for www.BuscompanyX.com.</div>
-	<div><a href="helpme/index.php">helpme</a></div>
+	<div>Sample page content.</div>
     </body>
 </html>
-
