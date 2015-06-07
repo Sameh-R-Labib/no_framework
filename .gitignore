@@ -1,3 +1,4 @@
+/includes/config.php
 /web/uploads/
 *.php~
 /web/bundles/
