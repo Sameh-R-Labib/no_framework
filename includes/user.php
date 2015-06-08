@@ -10,15 +10,15 @@ class User {
   }
 
   public static function find_by_id($id=0) {
-    global $MySQLDatabase;
+    global $database;
     $result_set = self::find_by_sql("SELECT * FROM users WHERE id={$id} LIMIT 1");
-    $found = $MySQLDatabase->fetch_array($result_set);
+    $found = $database->fetch_array($result_set);
     return $found;
   }
 
   public static function find_by_sql($sql="") {
-    global $MySQLDatabase;
-    $result_set = $MySQLDatabase->query($sql);
+    global $database;
+    $result_set = $database->query($sql);
 		return $result_set;
   }
 
