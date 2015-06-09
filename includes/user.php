@@ -33,6 +33,14 @@ class User {
     return $object_array;
   }
 
+  // Returns the full name or an empty string
+  public function full_name() {
+    if(isset($this->first_name) && isset($this->last_name)) {
+      return $this->first_name . " " . $this->last_name;
+    } else {
+      return "";
+    }
+  }
 
   // Returns a User object based on a user record array
   private static function instantiate($record) {
