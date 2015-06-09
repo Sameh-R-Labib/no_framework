@@ -1,6 +1,7 @@
 <?php
-require_once("../../includes/MySQLDatabase.php");
-require_once("../../includes/user.php");
+require_once("../../includes/functions.php");
+require_once("../../includes/mysqldatabase.php");
+//require_once("../../includes/user.php");
 
 $user = User::find_by_id(1);
 echo $user->full_name();

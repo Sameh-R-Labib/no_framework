@@ -1,5 +1,5 @@
 <?php
-require_once('MySQLDatabase.php');
+require_once('mysqldatabase.php');
 
 class User {
 
