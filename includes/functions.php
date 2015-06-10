@@ -15,10 +15,6 @@ function strip_zeros_from_date( $marked_string="" ) {
 }
 
 
-
-// scroll down
-
-
 function redirect_to( $location = NULL ) {
 // This function takes a string which normally
 // goes in a Location header. Then places it in
@@ -33,8 +29,6 @@ function redirect_to( $location = NULL ) {
   }
 }
 
-
-// scroll down
 
 function output_message($message="") {
 // This function takes a string parameter
@@ -54,7 +48,7 @@ function output_message($message="") {
 // a class definition.
 function __autoload($class_name) {
   $class_name = strtolower($class_name);
-  $path = "../../includes/{$class_name}.php";
+  $path = LIB_PATH.DS."{$class_name}.php";
   if (file_exists($path)) {
     require_once($path);
   } else {

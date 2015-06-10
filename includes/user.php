@@ -1,5 +1,5 @@
 <?php
-require_once('mysqldatabase.php');
+require_once(LIB_PATH.DS.'mysqldatabase.php');
 
 class User {
 
