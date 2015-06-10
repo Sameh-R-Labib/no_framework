@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) { // Form has been submitted.
   $password = trim($_POST['password']);
 
   // Check database to see if username/password exist.
-	$found_user = User::authenticate($username, $password);
+  $found_user = User::authenticate($username, $password);
 
   if ($found_user) {
     $session->login($found_user);
