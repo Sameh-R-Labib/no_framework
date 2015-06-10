@@ -1,7 +1,7 @@
 <?php
 require_once("../../../includes/functions.php");
 require_once("../../../includes/session.php");
-require_once("../../../includes/database.php");
+require_once("../../../includes/mysqldatabase.php");
 require_once("../../../includes/user.php");
 
 // no reason to waist time if logged in.
@@ -34,12 +34,12 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 ?>
 <html>
   <head>
-    <title>Photo Gallery</title>
+    <title>BusCompanyX: helpme</title>
     <link href="../../stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="header">
-      <h1>Photo Gallery</h1>
+      <h1>BusCompanyX: helpme</h1>
     </div>
     <div id="main">
 		<h2>Staff Login</h2>
