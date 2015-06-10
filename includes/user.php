@@ -42,6 +42,22 @@ class User {
     }
   }
 
+  // Search for user then return user object if found.
+  // Otherwise, return false.
+  public static function authenticate($username="", $password="") {
+    global $database;
+    $username = $database->escape_value($username);
+    $password = $database->escape_value($password);
+
+    $sql  = "SELECT * FROM users ";
+    $sql .= "WHERE username = '{$username}' ";
+    $sql .= "AND password = '{$password}' ";
+    $sql .= "LIMIT 1";
+    $result_array = self::find_by_sql($sql);
+    return !empty($result_array) ? array_shift($result_array) : false;
+  }
+
+  // -
   // Returns a User object based on a user record array
   private static function instantiate($record) {
     // Could check that $record exists and is an array
