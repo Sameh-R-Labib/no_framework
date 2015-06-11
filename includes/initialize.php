@@ -17,7 +17,7 @@ defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
 // SITE_ROOT constant
 defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
   // The btb course didn't use $_SERVER['DOCUMENT_ROOT']
-  // however I'm using it so my app runs both in dev and productio
+  // however I'm using it so my app runs both in dev and production
   // using the same initialize.php file.
 
 

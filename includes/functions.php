@@ -56,4 +56,8 @@ function __autoload($class_name) {
   }
 }
 
+function include_layout_template($template="") {
+  include(SITE_ROOT.DS.'helpme'.DS.'layouts'.DS.$template);
+}
+
 ?>

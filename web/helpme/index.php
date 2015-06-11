@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<!--
-sample remark in html
--->
-<html>
-    <head>
-        <title>helpme home page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    </head>
-    <body>
-	<div>Sample page content.</div>
-    </body>
-</html>
+<?php require_once("../../includes/initialize.php"); ?>
+
+<?php include_layout_template('header.php'); ?>
+<?php
+$user = User::find_by_id(1);
+echo $user->full_name();
+
+echo "<hr />";
+
+$users = User::find_all();
+foreach($users as $user) {
+  echo "User: ". $user->username ."<br />";
+  echo "Name: ". $user->full_name() ."<br /><br />";
+}
+
+?>
+<?php include_layout_template('footer.php'); ?>
