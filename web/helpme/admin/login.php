@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 } else { // Form has not been submitted.
   $username = "";
   $password = "";
+  $message = "";
 }
 
 ?>

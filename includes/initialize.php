@@ -5,32 +5,26 @@
 // other scripts.
 
 
+// load config file first
+// config.php is the only file that differs from one installation
+// to another. That is why it's listed in .gitignore
+// Also, this require_once uses a relative path. Therefore
+// config.php and initialize.php must live in the same directory.
+require_once('config.php');
+
+
 // DEFINE PATH CONSTANTS
 
 // DIRECTORY_SEPARATOR is a PHP pre-defined constant
 // (\ for Windows, / for Unix)
-
 // DS
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
 
-
-// SITE_ROOT constant
-defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
-  // The btb course didn't use $_SERVER['DOCUMENT_ROOT']
-  // however I'm using it so my app runs both in dev and production
-  // using the same initialize.php file.
-
-
 // LIB_PATH
-defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
+defined('LIB_PATH') ? null : define('LIB_PATH', PROJ_ROOT.DS.'includes');
 
 
 // INCLUDE LIBRARY SCRIPTS
-
-// load config file first
-// config.php is the only file that siffers from one installation
-// to another. That is why it's listed in .gitignore
-require_once(LIB_PATH.DS.'config.php');
 
 // load basic functions next so that everything after can use them
 require_once(LIB_PATH.DS.'functions.php');
