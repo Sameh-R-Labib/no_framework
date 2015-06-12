@@ -32,6 +32,7 @@ require_once(LIB_PATH.DS.'functions.php');
 // load core classes and their objects
 require_once(LIB_PATH.DS.'session.php');
 require_once(LIB_PATH.DS.'mysqldatabase.php');
+require_once(LIB_PATH.DS.'databaseobject.php');
 
 // load model classes
 require_once(LIB_PATH.DS.'user.php');
