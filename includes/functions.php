@@ -14,6 +14,32 @@ function strip_zeros_from_date( $marked_string="" ) {
   return $cleaned_string;
 }
 
+/////
+// This function takes two arguments which are strings.
+// The first is $action which is a short phrase describing
+// the action being logged. The second is $message which
+// is a sentence describing the action being logged.
+// If fopen() is able to open the log.txt file, then log_action()
+// will append a line to log.txt (a file located
+// in the LOGS_PATH directory.) The $content of this log
+// entry line is a timestamp then $action and $message.
+// Otherwise (if fopen() fails) log_action() will echo
+// "Could not open log file for writing."
+/////
+function log_action($action, $message="") {
+  $logfile = LOGS_PATH.DS.'log.txt';
+  //$new = file_exists($logfile) ? false : true;
+  if($handle = fopen($logfile, 'a')) { // append
+    $timestamp = strftime("%Y-%m-%d %H:%M:%S", time());
+    $content = "{$timestamp} | {$action}: {$message}\n";
+    fwrite($handle, $content);
+    fclose($handle);
+    //if($new) { chmod($logfile, 0755); }
+  } else {
+    echo "Could not open log file for writing.";
+  }
+}
+
 
 function redirect_to( $location = NULL ) {
 // This function takes a string which normally
