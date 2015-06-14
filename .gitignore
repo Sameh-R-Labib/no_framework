@@ -1,5 +1,6 @@
 /includes/config.php
 /web/uploads/
+!web/uploads/.gitkeep
 *.php~
 /web/bundles/
 /app/bootstrap.php.cache
