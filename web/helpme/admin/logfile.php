@@ -7,7 +7,7 @@ if (!$session->is_logged_in()) {
 
 $logfile = LOGS_PATH.DS.'log.txt';
   
-if($_GET['clear'] == 'true') {
+if ( isset($_GET['clear']) && $_GET['clear'] == 'true') {
   file_put_contents($logfile, '');
   // Add the first log entry
   log_action('Logs Cleared', "by User ID {$session->user_id}");
@@ -39,7 +39,7 @@ if (file_exists($logfile) && is_readable($logfile) && $handle = fopen($logfile, 
   echo "<ul class=\"log-entries\">";
   while(!feof($handle)) {
     $entry = fgets($handle);
-    echo "<li>{$entry}</li>";
+    if(trim($entry) != "") { echo "<li>{$entry}</li>"; }
   }
   echo "</ul>";
   fclose($handle);
@@ -47,6 +47,6 @@ if (file_exists($logfile) && is_readable($logfile) && $handle = fopen($logfile, 
   echo "Could not read from {$logfile}.";
 }
 
-php include_layout_template('admin_footer.php');
+include_layout_template('admin_footer.php');
 
 ?>
