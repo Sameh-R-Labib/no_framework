@@ -137,8 +137,11 @@ class DatabaseObject {
     return ($database->affected_rows() == 1) ? true : false;
   }
 
+  /***
+   * Returns an array containing the attributes which have corresponding
+   * database table fields.
+   ***/
   protected function attributes() { 
-    // return an array of attribute keys and their values
     $attributes = array();
     foreach (static::$db_fields as $field) {
       if (property_exists($this, $field)) {
