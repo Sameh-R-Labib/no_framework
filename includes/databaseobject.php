@@ -139,9 +139,15 @@ class DatabaseObject {
 
   protected function attributes() { 
     // return an array of attribute keys and their values
-    return get_object_vars($this);
+    $attributes = array();
+    foreach (static::$db_fields as $field) {
+      if (property_exists($this, $field)) {
+        $attributes[$field] = $this->$field;
+      }
+    }
+    return $attributes;
   }
-	
+
   protected function sanitized_attributes() {
     global $database;
     $clean_attributes = array();

@@ -4,6 +4,7 @@ require_once(LIB_PATH.DS.'mysqldatabase.php');
 class User extends DatabaseObject {
 
   protected static $table_name="users";
+  protected static $db_fields = array('id', 'username', 'password', 'first_name', 'last_name', 'organization', 'role');
   public $id;
   public $username;
   public $password;
