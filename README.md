@@ -13,11 +13,11 @@ Since this is free and open source
 software revenue is derived by those who implement
 it for school bus contractors.
 
-You know how WordPress has two versions. There is the one
-which users use for free and is hosted on wordpress.com,
-and another which users can download and install themselves.
-Well this project will be kind of the same way. There is a copy
-which Sam will run on the server at https://BusCompanyX.com
+As an example, WordPress has two versions. There is one
+for free and hosted on http://wordpress.com,
+and another that's download and installed.
+Well this project is kind of the same way. There's a copy
+Sam will run on https://BusCompanyX.com
 However, others can run this project on their own server
 and domain.
 
