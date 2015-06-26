@@ -73,7 +73,7 @@ class DatabaseObject {
     // - INSERT INTO table (key, key) VALUES ('value', 'value')
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
-    $sql = "INSERT INTO ".self::$table_name." (";
+    $sql = "INSERT INTO ".static::$table_name." (";
     $sql .= "username, password, first_name, last_name";
     $sql .= ") VALUES ('";
     $sql .= $database->escape_value($this->username) ."', '";
@@ -99,7 +99,7 @@ class DatabaseObject {
     // - UPDATE table SET key='value', key='value' WHERE condition
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
-    $sql = "UPDATE ".self::$table_name." SET ";
+    $sql = "UPDATE ".static::$table_name." SET ";
     $sql .= "username='". $database->escape_value($this->username) ."', ";
     $sql .= "password='". $database->escape_value($this->password) ."', ";
     $sql .= "first_name='". $database->escape_value($this->first_name) ."', ";
@@ -130,7 +130,7 @@ class DatabaseObject {
     // - DELETE FROM table WHERE condition LIMIT 1
     // - escape all values to prevent SQL injection
     // - use LIMIT 1
-    $sql = "DELETE FROM ".self::$table_name." ";
+    $sql = "DELETE FROM ".static::$table_name." ";
     $sql .= "WHERE id=". $database->escape_value($this->id);
     $sql .= " LIMIT 1";
 
