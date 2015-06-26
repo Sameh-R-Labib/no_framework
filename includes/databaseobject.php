@@ -55,12 +55,9 @@ class DatabaseObject {
   // an attribute for this object/class.
   /////
   private function has_attribute($attribute) {
-    // get_object_vars returns an associative array with all attributes
-    // (incl. private ones!) as the keys and their current values as the value
-    $object_vars = get_object_vars($this);
     // We don't care about the value, we just want to know if the key exists
     // Will return true or false
-    return array_key_exists($attribute, $object_vars);
+    return array_key_exists($attribute, $this->attributes());
   }
 
   /////
@@ -73,13 +70,12 @@ class DatabaseObject {
     // - INSERT INTO table (key, key) VALUES ('value', 'value')
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
+    $attributes = $this->sanitized_attributes();
     $sql = "INSERT INTO ".static::$table_name." (";
-    $sql .= "username, password, first_name, last_name";
+    $sql .= join(", ", array_keys($attributes));
     $sql .= ") VALUES ('";
-    $sql .= $database->escape_value($this->username) ."', '";
-    $sql .= $database->escape_value($this->password) ."', '";
-    $sql .= $database->escape_value($this->first_name) ."', '";
-    $sql .= $database->escape_value($this->last_name) ."')";
+    $sql .= join("', '", array_values($attributes));
+    $sql .= "')";
 
     if($database->query($sql)) {
       $this->id = $database->insert_id();
@@ -99,12 +95,15 @@ class DatabaseObject {
     // - UPDATE table SET key='value', key='value' WHERE condition
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
+
+    $attributes = $this->sanitized_attributes();
+    $attribute_pairs = array();
+    foreach($attributes as $key => $value) {
+      $attribute_pairs[] = "{$key}='{$value}'";
+    }
     $sql = "UPDATE ".static::$table_name." SET ";
-    $sql .= "username='". $database->escape_value($this->username) ."', ";
-    $sql .= "password='". $database->escape_value($this->password) ."', ";
-    $sql .= "first_name='". $database->escape_value($this->first_name) ."', ";
-    $sql .= "last_name='". $database->escape_value($this->last_name) ."' ";
-    $sql .= "WHERE id=". $database->escape_value($this->id);
+    $sql .= join(", ", $attribute_pairs);
+    $sql .= " WHERE id=". $database->escape_value($this->id);
 
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
@@ -136,6 +135,23 @@ class DatabaseObject {
 
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
+  }
+
+  protected function attributes() { 
+    // return an array of attribute keys and their values
+    return get_object_vars($this);
+  }
+	
+  protected function sanitized_attributes() {
+    global $database;
+    $clean_attributes = array();
+
+    // sanitize the values before submitting
+    // Note: does not alter the actual value of each attribute
+    foreach($this->attributes() as $key => $value){
+    $clean_attributes[$key] = $database->escape_value($value);
+    }
+    return $clean_attributes;
   }
 
 }
