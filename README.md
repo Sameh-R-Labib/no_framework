@@ -27,5 +27,5 @@ now and then. But you will follow his lead.
 
 Thanks for reading.
 
-Sam's YouTube chennel:
+Sam's YouTube channel:
 https://www.youtube.com/channel/UCDxyhrNwrFAUpO-TnQiaMCg/videos
