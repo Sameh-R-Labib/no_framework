@@ -46,5 +46,6 @@ require_once(LIB_PATH.DS.'databaseobject.php');
 
 // load model classes
 require_once(LIB_PATH.DS.'user.php');
+require_once(LIB_PATH.DS.'photograph.php');
 
 ?>
