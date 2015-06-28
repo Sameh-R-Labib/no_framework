@@ -31,6 +31,9 @@ defined('LIB_PATH') ? null : define('LIB_PATH', PROJ_ROOT.DS.'includes');
 // LOGS_DIR
 defined('LOGS_PATH') ? null : define('LOGS_PATH', PROJ_ROOT.DS.'logs');
 
+// WEB_DIR
+defined('WEB_DIR') ? null : define('WEB_DIR', PROJ_ROOT.DS.'web');
+
 
 ///////
 // INCLUDE LIBRARY SCRIPTS
