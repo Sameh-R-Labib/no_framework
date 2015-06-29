@@ -62,7 +62,7 @@
 ?>
 <?php include_layout_template('admin_header.php'); ?>
 <h2>Photo Upload</h2>
-<?php php echo output_message($message); ?>
+<?php echo output_message($message); ?>
 <form action="photo_upload.php" enctype="multipart/form-data" method="POST">
   <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>" />
   <p><input type="file" name="file_upload" /></p>
