@@ -13,7 +13,8 @@ class DatabaseObject {
   // Returns an associative array record for an object
   /////
   public static function find_by_id($id=0) {
-    $result_array = static::find_by_sql("SELECT * FROM ".static::$table_name." WHERE id={$id} LIMIT 1");
+    global $database;
+    $result_array = static::find_by_sql("SELECT * FROM ".static::$table_name." WHERE id=".$database->escape_value($id)." LIMIT 1");
     return !empty($result_array) ? array_shift($result_array) : false;
   }
 

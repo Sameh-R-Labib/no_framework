@@ -109,6 +109,20 @@ class Photograph extends DatabaseObject {
     return $this->upload_dir.DS.$this->filename;
   }
 
+  public function destroy() {
+    // First remove the database entry
+    if ($this->delete()) {
+      // then remove the file
+      // Note that even though the database entry is gone, this object 
+      // is still around (which lets us use $this->image_path()).
+      $target_path = WEB_DIR.DS.$this->image_path();
+      return unlink($target_path) ? true : false;
+    } else {
+      // database delete failed
+      return false;
+    }
+  }
+
   public function size_as_text() {
     if($this->size < 1024) {
       return "{$this->size} bytes";
