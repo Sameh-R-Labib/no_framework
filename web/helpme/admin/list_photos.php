@@ -8,6 +8,7 @@
 
 <h2>Photographs</h2>
 
+<?php echo output_message($message); ?>
 <table class="bordered">
   <tr>
     <th>Image</th>

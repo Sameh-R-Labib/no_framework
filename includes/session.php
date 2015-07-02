@@ -6,6 +6,7 @@ class Session {
 	
   private $logged_in=false;
   public $user_id;
+  public $message;
 
   // 1. retrieves session data and establishes session
   //    for this script based on the cookie
@@ -15,6 +16,7 @@ class Session {
   //    or not user is logged in
   function __construct() {
     session_start();
+    $this->check_message();
     $this->check_login();
     if($this->logged_in) {
       // actions to take right away if user is logged in
@@ -59,7 +61,35 @@ class Session {
       $this->logged_in = false;
     }
   }
+
+  /*
+   * Does not set the $message attribute when
+   * acting as a setter.
+   */
+  public function message($msg="") {
+    if (!empty($msg)) {
+      // then this is "set message"
+      // make sure you understand why $this->message=$msg wouldn't work
+      $_SESSION['message'] = $msg;
+    } else {
+      // then this is "get message"
+      return $this->message;
+    }
+  }
+
+  private function check_message() {
+    // Is there a message stored in the session?
+    if(isset($_SESSION['message'])) {
+      // Add it as an attribute and erase the stored version
+      $this->message = $_SESSION['message'];
+      unset($_SESSION['message']);
+    } else {
+      $this->message = "";
+    }
+  }
+
 }
 
 $session = new Session();
+$message = $session->message();
 ?>

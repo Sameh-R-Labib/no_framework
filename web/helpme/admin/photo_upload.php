@@ -46,14 +46,14 @@
                                 //    102400 = 100 KB
                                 //   1048576 =   1 MB
                                 //  10485760 =  10 MB
-  $message = "";
   if (isset($_POST['submit'])) {
     $photo = new Photograph();
     $photo->caption = $_POST['caption'];
     $photo->attach_file($_FILES['file_upload']);
     if($photo->save()) {
       // Success
-      $message = "Photograph uploaded successfully.";
+      $session->message("Photograph uploaded successfully.");
+      redirect_to('list_photos.php'); 
     } else {
       // Failure
       $message = join("<br />", $photo->errors);
