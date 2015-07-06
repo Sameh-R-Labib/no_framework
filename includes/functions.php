@@ -86,4 +86,9 @@ function include_layout_template($template="") {
   include(PROJ_ROOT.DS.'web'.DS.'helpme'.DS.'layouts'.DS.$template);
 }
 
+function datetime_to_text($datetime="") {
+  $unixdatetime = strtotime($datetime);
+  return strftime("%B %d, %Y at %I:%M %p", $unixdatetime);
+}
+
 ?>

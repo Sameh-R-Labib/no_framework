@@ -64,7 +64,7 @@ class Photograph extends DatabaseObject {
       $this->update();
     } else {
       // Make sure there are no errors
-			
+
       // Can't save if there are pre-existing errors
       if (!empty($this->errors)) { return false; }
 
@@ -135,6 +135,9 @@ class Photograph extends DatabaseObject {
     }
   }
 
+  public function comments() {
+    return Comment::find_comments_on($this->id);
+  }
 }
 
 ?>
