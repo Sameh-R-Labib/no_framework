@@ -1,5 +1,16 @@
 <?php
   require_once("../../includes/initialize.php");
+
+  // 1. the current page number ($current_page)
+  $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+
+  // 2. records per page ($per_page)
+  $per_page = 3;
+
+  // 3. total record count ($total_count)
+  $total_count = Photograph::count_all();
+
+
   // Find all photos
   $photos = Photograph::find_all();
 ?>

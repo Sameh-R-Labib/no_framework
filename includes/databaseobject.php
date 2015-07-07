@@ -164,6 +164,14 @@ class DatabaseObject {
     return $clean_attributes;
   }
 
+  public static function count_all() {
+    global $database;
+    $sql = "SELECT COUNT(*) FROM ".static::$table_name;
+    $result_set = $database->query($sql);
+    $row = $database->fetch_array($result_set);
+    return array_shift($row);
+  }
+
 }
 
 ?>
