@@ -1,5 +1,4 @@
 <?php
-require_once(LIB_PATH.DS.'mysqldatabase.php');
 
 class Comment extends DatabaseObject {
 
