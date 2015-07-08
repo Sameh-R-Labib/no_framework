@@ -41,4 +41,35 @@
   </div>
 <?php endforeach; ?>
 
+
+<div id="pagination" style="clear: both;">
+<?php
+  if($pagination->total_pages() > 1) {
+    
+    if($pagination->has_previous_page()) { 
+      echo "<a href=\"index.php?page=";
+      echo $pagination->previous_page();
+      echo "\">&laquo; Previous</a> "; 
+    }
+
+    for($i=1; $i <= $pagination->total_pages(); $i++) {
+      if($i == $page) {
+        echo " <span class=\"selected\">{$i}</span> ";
+      } else {
+        echo " <a href=\"index.php?page={$i}\">{$i}</a> "; 
+      }
+    }
+
+    if($pagination->has_next_page()) { 
+      echo " <a href=\"index.php?page=";
+      echo $pagination->next_page();
+      echo "\">Next &raquo;</a> "; 
+    }
+    
+  }
+
+?>
+</div>
+
+
 <?php include_layout_template('footer.php'); ?>
