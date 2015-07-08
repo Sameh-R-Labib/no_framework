@@ -12,7 +12,21 @@
 
 
   // Find all photos
-  $photos = Photograph::find_all();
+  // use pagination instead
+  //$photos = Photograph::find_all();
+
+  $pagination = new Pagination($page, $per_page, $total_count);
+
+  // Instead of finding all records, just find the records 
+  // for this page
+  $sql = "SELECT * FROM photographs ";
+  $sql .= "LIMIT {$per_page} ";
+  $sql .= "OFFSET {$pagination->offset()}";
+  $photos = Photograph::find_by_sql($sql);
+
+  // Need to add ?page=$page to all links we want to 
+  // maintain the current page (or store $page in $session)
+
 ?>
 
 <?php include_layout_template('header.php'); ?>
