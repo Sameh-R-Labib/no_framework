@@ -49,10 +49,10 @@ require(LIB_PATH.DS.'functions.php');
 require(LIB_PATH.DS.'session.php');
 require(LIB_PATH.DS.'mysqldatabase.php');
 require(LIB_PATH.DS.'databaseobject.php');
-require(LIB_PATH.DS.'pagination.php');
+//require(LIB_PATH.DS.'pagination.php');
 
 // load model classes
 require(LIB_PATH.DS.'user.php');
-require(LIB_PATH.DS.'photograph.php');
-require(LIB_PATH.DS.'comment.php');
+//require(LIB_PATH.DS.'photograph.php');
+//require(LIB_PATH.DS.'comment.php');
 ?>

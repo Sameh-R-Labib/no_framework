@@ -70,17 +70,36 @@ function output_message($message="") {
   }
 }
 
-// This function gets called whenever php can't find
-// a class definition.
-function __autoload($class_name) {
-  $class_name = strtolower($class_name);
-  $path = LIB_PATH.DS."{$class_name}.php";
-  if (file_exists($path)) {
-    require_once($path);
+
+/**
+ * SPL autoloader for main classes
+ * $class_name is the name of the class to load
+ */
+function load_mainclass($class_name)
+{
+  $file_name = LIB_PATH.DS.strtolower($class_name).'.php';
+  if (is_readable($file_name)) {
+    require($file_name);
   } else {
-    die("The file {$class_name}.php could not be found.");
+  	die("The file {$class_name}.php could not be found.");
   }
 }
+
+spl_autoload_register('load_mainclass');
+
+
+
+// This function gets called whenever php can't find
+// a class definition.
+//function __autoload($class_name) {
+//  $class_name = strtolower($class_name);
+//  $path = LIB_PATH.DS."{$class_name}.php";
+//  if (file_exists($path)) {
+//    require($path);
+//  } else {
+//    die("The file {$class_name}.php could not be found.");
+//  }
+//}
 
 function include_layout_template($template="") {
   include(PROJ_ROOT.DS.'web'.DS.'helpme'.DS.'layouts'.DS.$template);
