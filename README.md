@@ -1,4 +1,8 @@
 # no_framework
+If you prefer to watch videos rather than reading:
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/eYiVXzm_G9I?list=PL53HNVwgFHMVXfe0553_yIkekiXGmmW7D" frameborder="0" allowfullscreen></iframe>
+
 Without using a PHP framework I will have a project for BusCompanyX.com 
 
 Sam is creating this project while growing his coding skills.
