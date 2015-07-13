@@ -11,21 +11,19 @@
 <?php echo output_message($message); ?>
 
 <?php
+  $mail = new PHPMailer;
+  $mail->From     = 'superuser@buscompanyx.com';
+  $mail->FromName = 'BusCompanyX.com App';
+  $mail->addAddress('schoolbuscompany@gmail.com', 'Sameh R. Labib');
+  $mail->Subject  = 'Test email sent at '.strftime('%T', time());
+  $mail->Body     = 'Body of PHPMailer Test Email Sending using.';
 
-  // Include the PHPMailer classes
-
-
-  $mail = new PHPMailer();
-
-  $mail->FromName = "SAMEH R LABIB LLC";
-  $mail->From     = "superuser@buscompanyx.com";
-  $mail->AddAddress("schoolbuscompany@gmail.com", "Sameh R. Labib");
-  $mail->Subject  = "Mail Test at ".strftime("%T", time());
-  $mail->Body     = "Test Sending Email using PHPMailer";
-
-  $result = $mail->Send();
-  echo $result ? 'Sent' : 'Error';
-
+	if(!$mail->send()) {
+	    echo 'Message could not be sent. '."<br />\n";
+	    echo 'Mailer Error: '.$mail->ErrorInfo."<br />\n";
+	} else {
+	    echo 'Message has been sent'."<br />\n";
+	}
 ?>
 
 <?php include_layout_template('admin_footer.php'); ?>

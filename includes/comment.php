@@ -35,4 +35,25 @@ class Comment extends DatabaseObject {
 
 }
 
+  public function try_to_send_notification() {
+    $mail = new PHPMailer;
+    $mail->From     = 'superuser@buscompanyx.com';
+    $mail->FromName = 'BusCompanyX.com App';
+    $mail->addAddress('superuser@buscompanyx.com', 'Sameh R. Labib');
+    $mail->Subject  = 'New Photo Gallery Comment';
+
+    $created = datetime_to_text($this->created);
+    $mail->Body     =<<<EMAILBODY
+
+A new comment has been received in the Photo Gallery.
+
+   At {$created}, {$this->author} wrote:
+
+{$this->body}
+
+EMAILBODY;
+
+    return $mail->send();
+  }
+
 ?>
