@@ -11,6 +11,7 @@ class Comment extends DatabaseObject {
   public $author;
   public $body;
 
+
   // "new" is a reserved word so we use "make" (or "build")
   public static function make($photo_id, $author="Anonymous", $body="") {
     if(!empty($photo_id) && !empty($author) && !empty($body)) {
@@ -25,6 +26,7 @@ class Comment extends DatabaseObject {
     }
   }
 
+
   public static function find_comments_on($photo_id=0) {
     global $database;
     $sql = "SELECT * FROM " . static::$table_name;
@@ -33,7 +35,6 @@ class Comment extends DatabaseObject {
     return static::find_by_sql($sql);
   }
 
-}
 
   public function try_to_send_notification() {
     $mail = new PHPMailer;
@@ -55,5 +56,5 @@ EMAILBODY;
 
     return $mail->send();
   }
-
+}
 ?>
