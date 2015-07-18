@@ -1,24 +1,37 @@
 <?php require('../includes/initialize.php'); ?>
 
-<?php include_layout_template('home_header.php'); ?>
-
-
-
 <?php
-//if ( isset($_GET['clear']) && $_GET['clear'] == 'true') {
-//  file_put_contents($logfile, '');
-  // Add the first log entry
-//  log_action('Logs Cleared', "by User ID {$session->user_id}");
-  // redirect to this same page so that the URL won't 
-  // have "clear=true" anymore
-//  redirect_to('logfile.php');
-//}
+/*
+If this script was reached because the payment form
+was submitted then I can expect the $_POST array to
+look something like:
+Array
+(
+    [stripeToken] => tok_16Q2aXKQDIQFKnT1lC4tdvGz
+    [stripeTokenType] => card
+    [stripeEmail] => schoolbuscompany@gmail.com
+)
+
+If the script was loaded directly then the $_POST array
+would be empty.
+
+If the user forged the payment form and tried to send
+it to this script then process the form as usual.
+*/
+
+
+if ( !isset($_POST['stripeToken']) ) {
+  $session->message("Do not access this page directly.");
+  redirect_to('index.php');
+}
 ?>
 
 
+<?php include_layout_template('home_header.php'); ?>
+
+<a href="index.php">&laquo; Home Page</a><br />
+
 <pre><?php print_r ($_POST); ?></pre>
-
-
 
 <?php
   include_layout_template('home_footer.php');

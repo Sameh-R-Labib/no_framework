@@ -4,6 +4,10 @@
 
 <?php include_layout_template('home_header.php'); ?>
 
+<h2>Home Page</h2>
+
+<?php echo output_message($message); ?>
+
 <ul>
 	<li>Site under construction</li>
 	<li>You are in BusCompanyX.com home</li>
