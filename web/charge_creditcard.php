@@ -1,20 +1,26 @@
-<?php require("../../../includes/initialize.php"); ?>
-<?php if (!$session->is_logged_in()) { redirect_to("login.php"); } ?>
-<?php
-	// must have an ID
-  if(empty($_GET['id'])) {
-  	$session->message("No photograph ID was provided.");
-    redirect_to('index.php');
-  }
+<?php require('../includes/initialize.php'); ?>
 
-  $photo = Photograph::find_by_id($_GET['id']);
-  if($photo && $photo->destroy()) {
-    $session->message("The photo {$photo->filename} was deleted.");
-    redirect_to('list_photos.php');
-  } else {
-    $session->message("The photo could not be deleted.");
-    redirect_to('list_photos.php');
-  }
-  
+<?php include_layout_template('home_header.php'); ?>
+
+
+
+<?php
+//if ( isset($_GET['clear']) && $_GET['clear'] == 'true') {
+//  file_put_contents($logfile, '');
+  // Add the first log entry
+//  log_action('Logs Cleared', "by User ID {$session->user_id}");
+  // redirect to this same page so that the URL won't 
+  // have "clear=true" anymore
+//  redirect_to('logfile.php');
+//}
 ?>
-<?php if(isset($database)) { $database->close_connection(); } ?>
+
+
+<pre><?php print_r ($_POST); ?></pre>
+
+
+
+<?php
+  include_layout_template('home_footer.php');
+//  if(isset($database)) { $database->close_connection(); }
+?>
