@@ -4,8 +4,9 @@
 
 <?php include_layout_template('home_header.php'); ?>
 
-<div>Initial content for www.BuscompanyX.com.</div>
-<div><a href="helpme/index.php">helpme</a></div>
+<div>This site is under construction.</div>
+<div>You are in BusCompanyX.com public</div>
+<div><a href="helpme/index.php">Go to BusCompanyX.com public</a></div>
 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 
