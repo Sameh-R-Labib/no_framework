@@ -1,5 +1,5 @@
 <?php
-  require_once('../../../includes/initialize.php');
+  require('../../../includes/initialize.php');
   if (!$session->is_logged_in()) { redirect_to("login.php"); }
 
   // The MAX_FILE_SIZE hidden field (measured in bytes) must precede

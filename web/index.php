@@ -1,5 +1,5 @@
 <?php
-  require_once("../includes/initialize.php");
+  require("../includes/initialize.php");
 ?>
 
 <?php include_layout_template('home_header.php'); ?>
@@ -15,7 +15,7 @@
 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 
-<form action="" method="POST">
+<form action="charge_creditcard.php" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_qmnMXmCGIzRRwG64UhA5VgXY"

@@ -1,5 +1,5 @@
 <?php
-  require_once("../../../includes/initialize.php");
+  require("../../../includes/initialize.php");
 
   // no reason to waist time if logged in.
   if($session->is_logged_in()) {

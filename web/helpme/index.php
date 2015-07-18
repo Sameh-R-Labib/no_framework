@@ -1,5 +1,5 @@
 <?php
-  require_once("../../includes/initialize.php");
+  require("../../includes/initialize.php");
 
   // 1. the current page number ($current_page)
   $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
