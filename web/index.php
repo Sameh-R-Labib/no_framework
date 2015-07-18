@@ -4,9 +4,14 @@
 
 <?php include_layout_template('home_header.php'); ?>
 
-<div>This site is under construction.</div>
-<div>You are in BusCompanyX.com public</div>
-<div><a href="helpme/index.php">Go to BusCompanyX.com public</a></div>
+<ul>
+	<li>Site under construction</li>
+	<li>You are in BusCompanyX.com home</li>
+	<li>To go to <a href="helpme/index.php">BusCompanyX.com public</a> click on the link.</li>
+</ul>
+<div></div>
+<div></div>
+<div></div>
 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 
