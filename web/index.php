@@ -20,9 +20,10 @@
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_qmnMXmCGIzRRwG64UhA5VgXY"
     data-amount="10000"
-    data-name="SAMEH R LABIB, LLC - BusCompanyX.com"
-    data-description="*TESTING ONLY* help fund me ($100)"
+    data-name="BusCompanyX.com"
+    data-description="by SAMEH R LABIB, LLC"
     data-image="/images/USA.png"
+    data-label="Test the payment system"
     data-zip-code="true">
   </script>
 </form>
