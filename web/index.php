@@ -19,10 +19,11 @@
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_qmnMXmCGIzRRwG64UhA5VgXY"
-    data-amount="2000"
-    data-name="Demo Site"
-    data-description="2 widgets ($20.00)"
-    data-image="/images/USA.png">
+    data-amount="10000"
+    data-name="SAMEH R LABIB, LLC - BusCompanyX.com"
+    data-description="*TESTING ONLY* help fund me ($100)"
+    data-image="/images/USA.png"
+    data-zip-code="true">
   </script>
 </form>
 
