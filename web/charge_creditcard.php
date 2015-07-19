@@ -29,6 +29,8 @@ if ( !isset($_POST['stripeToken']) ) {
 
 <?php include_layout_template('home_header.php'); ?>
 
+<h2>Thanks!</h2>
+
 <a href="index.php">&laquo; Home Page</a><br />
 
 <pre><?php print_r ($_POST); ?></pre>

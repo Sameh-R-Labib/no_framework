@@ -37,6 +37,9 @@ defined('LOGS_PATH') ? null : define('LOGS_PATH', PROJ_ROOT.DS.'logs');
 // WEB_DIR
 defined('WEB_DIR') ? null : define('WEB_DIR', PROJ_ROOT.DS.'web');
 
+// VENDOR_DIR
+defined('VENDOR_DIR') ? null : define('VENDOR_DIR', PROJ_ROOT.DS.'vendor');
+
 
 ///////
 // INCLUDE LIBRARY SCRIPTS
@@ -49,6 +52,7 @@ require(LIB_PATH.DS.'functions.php');
 require(LIB_PATH.DS.'session.php');
 require(LIB_PATH.DS.'mysqldatabase.php');
 require(LIB_PATH.DS.'databaseobject.php');
+require(VENDOR_DIR.DS.'autoload.php');
 //require(LIB_PATH.DS.'pagination.php');
 
 // load model classes

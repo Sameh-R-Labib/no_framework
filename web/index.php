@@ -13,9 +13,6 @@
 	<li>You are in BusCompanyX.com home</li>
 	<li>To go to <a href="helpme/index.php">BusCompanyX.com public</a> click on the link.</li>
 </ul>
-<div></div>
-<div></div>
-<div></div>
 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 

@@ -1,3 +1,4 @@
+composer.lock
 /includes/config.php
 /web/uploads/
 !web/uploads/.gitkeep
