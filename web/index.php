@@ -19,7 +19,7 @@
 <form action="charge_creditcard.php" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_qmnMXmCGIzRRwG64UhA5VgXY"
+    data-key="<?php echo $myStripePubKey; ?>"
     data-amount="10000"
     data-name="BusCompanyX.com"
     data-description="by SAMEH R LABIB, LLC"

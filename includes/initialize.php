@@ -59,4 +59,18 @@ require(VENDOR_DIR.DS.'autoload.php');
 require(LIB_PATH.DS.'user.php');
 //require(LIB_PATH.DS.'photograph.php');
 //require(LIB_PATH.DS.'comment.php');
+
+///////
+// Define Stripe Keys
+///////
+if (ENVIRONMENT == 'development') {
+	$myStripePubKey = TESTSTRIPEPUB;
+	$myStripeSecKey = TESTSTRIPESEC;
+} elseif (ENVIRONMENT === 'production') {
+	$myStripePubKey = LIVESTRIPEPUB;
+	$myStripeSecKey = LIVESTRIPESEC;
+} else {
+	die('I do not know which environment I am in.');
+}
+
 ?>

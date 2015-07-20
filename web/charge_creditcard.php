@@ -28,7 +28,7 @@ if ( !isset($_POST['stripeToken']) ) {
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here https://dashboard.stripe.com/account/apikeys
-\Stripe\Stripe::setApiKey(MYSTRIPE);
+\Stripe\Stripe::setApiKey($myStripeSecKey);
 
 // Get the credit card details submitted by the form
 $token = $_POST['stripeToken'];
