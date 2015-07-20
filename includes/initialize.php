@@ -66,7 +66,7 @@ require(LIB_PATH.DS.'user.php');
 if (ENVIRONMENT == 'development') {
 	$myStripePubKey = TESTSTRIPEPUB;
 	$myStripeSecKey = TESTSTRIPESEC;
-} elseif (ENVIRONMENT === 'production') {
+} elseif (ENVIRONMENT == 'production') {
 	$myStripePubKey = LIVESTRIPEPUB;
 	$myStripeSecKey = LIVESTRIPESEC;
 } else {
