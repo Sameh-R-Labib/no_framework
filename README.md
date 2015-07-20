@@ -1,35 +1,21 @@
 # no_framework
 If you prefer to watch videos rather than reading:
 
-  https://youtu.be/eYiVXzm_G9I
+https://youtu.be/wdCdMTBS_qg
 
-Without using a PHP framework I will have a project for BusCompanyX.com 
-
-Sam is creating this project while growing his coding skills.
+Sam is leading this project while growing his coding skills.
 He is learning from Lynda.com courses.
 
-This is an Open Source project and Sam is looking for a contributor.
+Without using a PHP framework Sam will have a project for BusCompanyX.com
 
-The end user of the code is school bus contractors
+This is an Open Source project and Sam is looking for a collaborators
+who would send him GitHub pull requests.
+
+Possible end users of this code are school bus contractors
 in the English speaking world.
 
 Since this is free and open source
 software revenue is derived by those who implement
 it for school bus contractors.
 
-As an example, WordPress has two versions. There is one
-for free and hosted on http://wordpress.com,
-and another that's download and installed.
-Well this project is kind of the same way. There's a copy
-Sam will run on https://BusCompanyX.com
-However, others can run this project on their own server
-and domain.
-
-Sameh R. Labib is the brains of this project. If you choose to
-partner up with him then you'll need to do things his way. You can make suggestions
-now and then. But you will follow his lead.
-
 Thanks for reading.
-
-Sam's YouTube channel:
-https://www.youtube.com/channel/UCDxyhrNwrFAUpO-TnQiaMCg/videos
