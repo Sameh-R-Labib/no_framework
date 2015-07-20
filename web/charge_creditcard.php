@@ -24,8 +24,27 @@ if ( !isset($_POST['stripeToken']) ) {
   $session->message("Do not access this page directly.");
   redirect_to('index.php');
 }
-?>
 
+
+// Set your secret key: remember to change this to your live secret key in production
+// See your keys here https://dashboard.stripe.com/account/apikeys
+\Stripe\Stripe::setApiKey(MYSTRIPE);
+
+// Get the credit card details submitted by the form
+$token = $_POST['stripeToken'];
+
+// Create the charge on Stripe's servers - this will charge the user's card
+try {
+$charge = \Stripe\Charge::create(array(
+  "amount" => 1000, // amount in cents, again
+  "currency" => "usd",
+  "source" => $token,
+  "description" => "Example charge")
+);
+} catch(\Stripe\Error\Card $e) {
+  // The card has been declined
+}
+?>
 
 <?php include_layout_template('home_header.php'); ?>
 
