@@ -1,83 +1,47 @@
 <?php
-///////
 // Here we define the core paths. Define them as absolute paths to
-// make sure that require works as expected. Also, we do as
-// many includes as we can to avoid having them coded into our
-// other scripts.
-///////
+// make sure that require works as expected.
 
 
-// Order Matters
-
-// load config file first
-// config.php is the only file that differs from one installation
+// load config.php before this file.
+// config.php is the only file which differs from one installation
 // to another. That is why it's listed in .gitignore
 // Also, this require uses a relative path. Therefore
 // config.php and initialize.php must live in the same directory.
 require('config.php');
 
-///////
-// DEFINE PATH CONSTANTS
-///////
 
 // PROJ_ROOT is defined in config.php
 
 // DIRECTORY_SEPARATOR is a PHP pre-defined constant
 // (\ for Windows, / for Unix)
-//
 // DS
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-
 // LIB_PATH
 defined('LIB_PATH') ? null : define('LIB_PATH', PROJ_ROOT.DS.'includes');
-
 // LOGS_DIR
 defined('LOGS_PATH') ? null : define('LOGS_PATH', PROJ_ROOT.DS.'logs');
-
 // WEB_DIR
 defined('WEB_DIR') ? null : define('WEB_DIR', PROJ_ROOT.DS.'web');
-
 // VENDOR_DIR
 defined('VENDOR_DIR') ? null : define('VENDOR_DIR', PROJ_ROOT.DS.'vendor');
 
 
-///////
-// INCLUDE LIBRARY SCRIPTS
-///////
-
 // load basic functions next so that everything after can use them
 require(LIB_PATH.DS.'functions.php');
-
-// Make load_mainclass() an autoloader
 // load_mainclass() is the no_framework autoloader
 spl_autoload_register('load_mainclass');
-
 // Load Composer's autoloader
 require(VENDOR_DIR.DS.'autoload.php');
 
-// Initialize $database
+// Initialize $database and its alias
 $database = new MySQLDatabase();
 $db =& $database;
-
 // Initializ $session and $message
 $session = new Session();
 $message = $session->message();
 
-
-// load core classes and their objects
-//require(LIB_PATH.DS.'session.php');
-//require(LIB_PATH.DS.'mysqldatabase.php');
-//require(LIB_PATH.DS.'databaseobject.php');
-//require(LIB_PATH.DS.'pagination.php');
-
-// load model classes
-//require(LIB_PATH.DS.'user.php');
-//require(LIB_PATH.DS.'photograph.php');
-//require(LIB_PATH.DS.'comment.php');
-
-///////
 // Define Stripe Keys
-///////
 if (ENVIRONMENT == 'development') {
 	$myStripePubKey = TESTSTRIPEPUB;
 	$myStripeSecKey = TESTSTRIPESEC;
@@ -87,5 +51,4 @@ if (ENVIRONMENT == 'development') {
 } else {
 	die('I do not know which environment I am in.');
 }
-
 ?>
