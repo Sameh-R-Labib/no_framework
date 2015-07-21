@@ -46,8 +46,6 @@ $charge = \Stripe\Charge::create(array(
 
 <a href="index.php">&laquo; Home Page</a><br />
 
-<pre><?php print_r ($_POST); ?></pre>
-
 <?php
   include_layout_template('home_footer.php');
 //  if(isset($database)) { $database->close_connection(); }
