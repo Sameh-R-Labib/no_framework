@@ -55,6 +55,15 @@ spl_autoload_register('load_mainclass');
 // Load Composer's autoloader
 require(VENDOR_DIR.DS.'autoload.php');
 
+// Initialize $database
+$database = new MySQLDatabase();
+$db =& $database;
+
+// Initializ $session and $message
+$session = new Session();
+$message = $session->message();
+
+
 // load core classes and their objects
 //require(LIB_PATH.DS.'session.php');
 //require(LIB_PATH.DS.'mysqldatabase.php');
@@ -62,7 +71,7 @@ require(VENDOR_DIR.DS.'autoload.php');
 //require(LIB_PATH.DS.'pagination.php');
 
 // load model classes
-require(LIB_PATH.DS.'user.php');
+//require(LIB_PATH.DS.'user.php');
 //require(LIB_PATH.DS.'photograph.php');
 //require(LIB_PATH.DS.'comment.php');
 
