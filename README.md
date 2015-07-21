@@ -3,6 +3,9 @@ If you prefer to watch videos rather than reading:
 
 https://youtu.be/wdCdMTBS_qg
 
+Also see:
+http://www.meetup.com/Linthicum-no_framework-PHP-Project/
+
 Sam is leading this project while growing his coding skills.
 He is learning from Lynda.com courses.
 
