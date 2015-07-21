@@ -80,12 +80,8 @@ function load_mainclass($class_name)
   $file_name = LIB_PATH.DS.strtolower($class_name).'.php';
   if (is_readable($file_name)) {
     require($file_name);
-  } else {
-  	die("The file {$class_name}.php could not be found.");
   }
 }
-
-spl_autoload_register('load_mainclass');
 
 
 

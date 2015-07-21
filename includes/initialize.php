@@ -48,11 +48,17 @@ defined('VENDOR_DIR') ? null : define('VENDOR_DIR', PROJ_ROOT.DS.'vendor');
 // load basic functions next so that everything after can use them
 require(LIB_PATH.DS.'functions.php');
 
-// load core classes and their objects
-require(LIB_PATH.DS.'session.php');
-require(LIB_PATH.DS.'mysqldatabase.php');
-require(LIB_PATH.DS.'databaseobject.php');
+// Make load_mainclass() an autoloader
+// load_mainclass() is the no_framework autoloader
+spl_autoload_register('load_mainclass');
+
+// Load Composer's autoloader
 require(VENDOR_DIR.DS.'autoload.php');
+
+// load core classes and their objects
+//require(LIB_PATH.DS.'session.php');
+//require(LIB_PATH.DS.'mysqldatabase.php');
+//require(LIB_PATH.DS.'databaseobject.php');
 //require(LIB_PATH.DS.'pagination.php');
 
 // load model classes
