@@ -51,4 +51,7 @@ if (ENVIRONMENT == 'development') {
 } else {
 	die('I do not know which environment I am in.');
 }
+// and set the API Key to $myStripeSecKey.
+// But, $myStripePubKey will set in the HTML.
+\Stripe\Stripe::setApiKey($myStripeSecKey);
 ?>

@@ -19,16 +19,10 @@ If the user forged the payment form and tried to send
 it to this script then process the form as usual.
 */
 
-
 if ( !isset($_POST['stripeToken']) ) {
   $session->message("Do not access this page directly.");
   redirect_to('index.php');
 }
-
-
-// Set your secret key: remember to change this to your live secret key in production
-// See your keys here https://dashboard.stripe.com/account/apikeys
-\Stripe\Stripe::setApiKey($myStripeSecKey);
 
 // Get the credit card details submitted by the form
 $token = $_POST['stripeToken'];
@@ -37,7 +31,7 @@ $token = $_POST['stripeToken'];
 try {
 $charge = \Stripe\Charge::create(array(
   "amount" => 1000, // amount in cents, again
-  "currency" => "usd",
+  "currency" => "usd",&nbsp;
   "source" => $token,
   "description" => "Example charge")
 );
