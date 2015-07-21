@@ -20,7 +20,7 @@
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<?php echo $myStripePubKey; ?>"
-    data-amount="10000"
+    data-amount="3000"
     data-name="BusCompanyX.com"
     data-description="by SAMEH R LABIB, LLC"
     data-image="/images/USA.png"
