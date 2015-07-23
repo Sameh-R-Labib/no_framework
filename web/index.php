@@ -9,7 +9,7 @@
 <?php echo output_message($message); ?>
 
 <ul>
-	<li>Site under construction</li>
+	<li><a href="http://www.meetup.com/Linthicum-no_framework-PHP-Project/events/224046847/" data-event="224046847" class="mu-rsvp-btn">RSVP</a></li>
 	<li>You are in BusCompanyX.com home</li>
 	<li>To go to <a href="helpme/index.php">BusCompanyX.com public</a> click on the link.</li>
 </ul>
@@ -28,5 +28,7 @@
     data-zip-code="true">
   </script>
 </form>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=si0v63rlsn2bdl7p8vtf54pse1";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");</script>
 
 <?php include_layout_template('home_footer.php'); ?>
