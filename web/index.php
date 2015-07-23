@@ -4,7 +4,7 @@
 
 <?php include_layout_template('home_header.php'); ?>
 
-<h2>Home Page</h2>
+<h2>Meetup next Thu July 30th, 2015 6:30 PM Glen Burnie, MD</h2>
 
 <?php echo output_message($message); ?>
 
