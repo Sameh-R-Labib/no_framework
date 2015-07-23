@@ -8,11 +8,9 @@
 
 <?php echo output_message($message); ?>
 
-<ul>
-	<li><a href="http://www.meetup.com/Linthicum-no_framework-PHP-Project/events/224046847/" data-event="224046847" class="mu-rsvp-btn">RSVP</a></li>
-	<li>You are in BusCompanyX.com home</li>
-	<li>To go to <a href="helpme/index.php">BusCompanyX.com public</a> click on the link.</li>
-</ul>
+<p><a href="http://www.meetup.com/Linthicum-no_framework-PHP-Project/events/224046847/" data-event="224046847" class="mu-rsvp-btn">RSVP</a><b>Meetup: See who's interested and what they bring to the table.</b></p>
+
+<div>Link to<a href="helpme/index.php">public</a>< area./div>
 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 
