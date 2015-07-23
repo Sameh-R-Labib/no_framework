@@ -9,7 +9,7 @@
 <?php echo output_message($message); ?>
 
 <p><a href="http://www.meetup.com/Linthicum-no_framework-PHP-Project/events/224046847/" data-event="224046847" class="mu-rsvp-btn">RSVP</a><br />
-  <b>Meetup: See who's interested and what they bring to the table.</b></p>
+  <b>To see who's interested and what they bring to the table.</b></p>
 
 <p>Link to <a href="helpme/index.php">public</a> area.</p>
 
