@@ -1,4 +1,8 @@
 # no_framework
+
+On freenode
+IRC Network: #noframeworkphp
+
 If you prefer to watch videos rather than reading:
 
 https://youtu.be/wdCdMTBS_qg
