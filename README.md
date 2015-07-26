@@ -8,7 +8,7 @@ Sam is leading this PHP project while growing his coding skills.
 He is learning from Lynda.com courses.
 
 Without using a PHP framework Sam will have a project for BusCompanyX.com
-This is an Open Source project and Sam is looking for a collaborators
+This is an Open Source project and Sam is looking for collaborators
 who do pull requests.
 
 The no_framework PHP code will be general enough that it can be
