@@ -1,7 +1,7 @@
 # no_framework
 
-On freenode
-IRC Network: #noframeworkphp
+On card.freenode.net
+IRC: #noframeworkphp
 
 If you prefer to watch videos rather than reading:
 
