@@ -1,17 +1,17 @@
 # no_framework
 
-On card.freenode.net IRC: #noframeworkphp
-If you prefer to watch videos rather than reading: https://youtu.be/wdCdMTBS_qg
+On card.freenode.net IRC: #noframeworkphp.
+If you prefer to watch videos rather than reading: https://youtu.be/wdCdMTBS_qg .
 Also see: http://www.meetup.com/Linthicum-no_framework-PHP-Project/
 
-Sam is leading this project while growing his coding skills.
+Sam is leading this PHP project while growing his coding skills.
 He is learning from Lynda.com courses.
 
 Without using a PHP framework Sam will have a project for BusCompanyX.com
 This is an Open Source project and Sam is looking for a collaborators
 who do pull requests.
 
-The no_framework code will be general enough that it can be
+The no_framework PHP code will be general enough that it can be
 used for any project. Having said that I also say:
 Possible end users of this code are school bus contractors.
 Since this is free and open source
