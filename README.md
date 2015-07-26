@@ -14,14 +14,13 @@ Sam is leading this project while growing his coding skills.
 He is learning from Lynda.com courses.
 
 Without using a PHP framework Sam will have a project for BusCompanyX.com
-
 This is an Open Source project and Sam is looking for a collaborators
-who would send him GitHub pull requests.
+who do pull requests.
 
+The no_framework code will be general enough that it can be
+used for any project. Having said that I also say:
 Possible end users of this code are school bus contractors
-in the English speaking world.
-
-Since this is free and open source
+in the English speaking world. Since this is free and open source
 software revenue is derived by those who implement
 it for school bus contractors.
 
