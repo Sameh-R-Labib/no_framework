@@ -44,6 +44,8 @@ $charge = \Stripe\Charge::create(array(
 
 <h2>Thanks!</h2>
 
+<pre><?php echo print_r($_POST); ?></pre>
+
 <a href="index.php">&laquo; Home Page</a><br />
 
 <?php

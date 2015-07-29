@@ -16,6 +16,20 @@
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 
 <form action="charge_creditcard.php" method="POST">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" name="author" value="" /></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input type="text" name="authoremail" value="" /></td>
+    </tr>
+    <tr>
+      <td>Comment:</td>
+      <td><textarea name="body" cols="70" rows="2"></textarea></td>
+    </tr>
+  </table>
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<?php echo $myStripePubKey; ?>"
