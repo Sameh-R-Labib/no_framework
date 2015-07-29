@@ -14,7 +14,7 @@
 
 <p>Link to <a href="helpme/index.php">public</a> area.</p>
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
+<iframe width="853" height="480" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 
 <form action="charge_creditcard.php" method="POST">
   <table>
