@@ -8,8 +8,9 @@
 
 <?php echo output_message($message); ?>
 
-<p><a href="http://www.meetup.com/Linthicum-no_framework-PHP-Project/events/224046847/" data-event="224046847" class="mu-rsvp-btn">RSVP</a><br />
-  <b>To see who's interested and what they bring to the table.</b></p>
+<p>
+<a href="http://www.meetup.com/Linthicum-no_framework-PHP-Project/events/224046847/">RSVP</a>
+<br /> <b>To see who's interested and what they bring to the table.</b></p>
 
 <p>Link to <a href="helpme/index.php">public</a> area.</p>
 
@@ -41,7 +42,5 @@
     data-zip-code="true">
   </script>
 </form>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=si0v63rlsn2bdl7p8vtf54pse1";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");</script>
 
 <?php include_layout_template('home_footer.php'); ?>
