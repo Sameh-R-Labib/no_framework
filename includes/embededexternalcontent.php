@@ -2,7 +2,7 @@
 
 class EmbededExternalContent extends DatabaseObject {
 	
-	protected static $table_name="embededexternalcontents";
+	protected static $table_name="embededexternalcontent";
 	protected static $db_fields=['id', 'caption', 'embed_code'];
 	public $id;
 	public $caption;

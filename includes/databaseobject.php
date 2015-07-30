@@ -115,6 +115,11 @@ class DatabaseObject {
     $sql .= join("', '", array_values($attributes));
     $sql .= "')";
 
+		//echo("<pre>");
+		//echo("$sql");
+		//echo("</pre>");
+		//die("Debug code in create method of databaseobject");
+
     if($database->query($sql)) {
       $this->id = $database->insert_id();
       return true;
