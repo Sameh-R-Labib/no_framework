@@ -1,5 +1,7 @@
 <?php
   require("../includes/initialize.php");
+	
+	$embededEC_id = HOMEPAGEEMBEDEDECID;
 ?>
 
 <?php include_layout_template('home_header.php'); ?>
@@ -13,8 +15,6 @@
 <br /> <b>To see who's interested and what they bring to the table.</b></p>
 
 <p>Link to <a href="helpme/index.php">public</a> area.</p>
-
-$embededEC_id = HOMEPAGEEMBEDEDECID;
 
 <iframe width="853" height="480" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
 
