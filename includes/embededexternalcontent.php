@@ -18,6 +18,20 @@ class EmbededExternalContent extends DatabaseObject {
     return Comment::find_comments_on($this->id);
   }
 	
+  /***
+	 * Instantiate an EmbededExternalContent
+	 * based on $caption and $embed_code
+	 ***/
+  public static function make($caption="No caption", $embed_code="") {
+    if (!empty($embed_code)) {
+      $eEC = new self();
+      $eEC->caption = $caption;
+      $eEC->embed_code = $embed_code;
+      return $eEC;
+    } else {
+      return false;
+    }
+  }
 	
 	
 	// FUNCTIONS INHERITED FROM DATABASEOBJECT
