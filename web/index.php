@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <td>Comment:</td>
-      <td><textarea name="body" cols="70" rows="2"></textarea></td>
+      <td><textarea name="comment" cols="70" rows="2"></textarea></td>
     </tr>
   </table>
   <script

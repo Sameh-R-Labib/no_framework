@@ -38,6 +38,11 @@ $charge = \Stripe\Charge::create(array(
 } catch(\Stripe\Error\Card $e) {
   // The card has been declined
 }
+
+$author = trim($_POST['author']);
+$authoremail = trim($_POST['authoremail']);
+$comment = trim($_POST['comment']);
+
 ?>
 
 <?php include_layout_template('home_header.php'); ?>
