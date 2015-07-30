@@ -43,6 +43,8 @@ $author = trim($_POST['author']);
 $authoremail = trim($_POST['authoremail']);
 $comment = trim($_POST['comment']);
 
+// Save the comment
+
 ?>
 
 <?php include_layout_template('home_header.php'); ?>

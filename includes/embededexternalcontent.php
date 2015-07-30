@@ -23,23 +23,24 @@ class EmbededExternalContent extends DatabaseObject {
 	// FUNCTIONS INHERITED FROM DATABASEOBJECT
 	
 	/* Termanology:
+	 * object == objectified record
 	 * record == arrayified record
 	 * array == array of records
 	 * field == static::$db_fields $field
 	 */
 	
   /***
-	 * Give me an array of all db records.
+	 * Give me an array of all the objects.
    ***/
 	// public static function find_all()
 	
   /***
-   * Give me a db record for id.
+   * Give me an object for this id.
    ***/
   // public static function find_by_id($id=0)
 
   /***
-	 * Give me an array of records for sql.
+	 * Give me an array of objects for this sql.
    ***/
   // public static function find_by_sql($sql="")
 	

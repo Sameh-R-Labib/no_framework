@@ -10,6 +10,8 @@
 // config.php and initialize.php must live in the same directory.
 require('config.php');
 
+// homepage embeded external content id
+defined('HOMEPAGEEMBEDEDECID') ? null : define('HOMEPAGEEMBEDEDECID', 1);
 
 // PROJ_ROOT is defined in config.php
 
