@@ -1,4 +1,4 @@
-# no_framework
+# no_framework PHP project
 
 ##on Slack
 
