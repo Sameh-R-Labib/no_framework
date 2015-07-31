@@ -3,12 +3,43 @@
 
   if (isset($_POST['submit'])) {
 		// Transfer POST data to vars
-    $caption = trim($_POST['caption']);
-    $embed_code = trim($_POST['embed_code']);
+		if (isset($_POST['caption'])) {
+			$caption = trim($_POST['caption']);
+		} else {
+			$caption = "";
+		}
+    if (isset($_POST['embed_code]')) {
+    	$embed_code = trim($_POST['embed_code']);
+    } else {
+    	$embed_code = "";
+    }
+		// Checkbox
+ 		if(isset($_POST['visible']) && $_POST['visible'] == '1') {
+			$visible = 1;
+		} else {
+			$visible = 0;
+		}
+		// Text
+    if (isset($_POST['author'])) {
+    	$author = $_POST['author'];
+    } else {
+    	$author = "";
+    }
+    if (isset($_POST['author_email'])) {
+    	$author_email = $_POST['author_email'];
+    } else {
+    	$author_email = "";
+    }
+    if (isset($_POST['route_for_page'])) {
+    	$route_for_page = $_POST['route_for_page'];
+    } else {
+    	$route_for_page = "";
+    }
  		
 		// Instantiate an EmbededExternalContent
 		// based on submitted data.
-		$newEEC = EmbededExternalContent::make($caption, $embed_code);
+		$newEEC = EmbedXternal::make($caption, $embed_code, $visible,
+			$author, $author_email, $route_for_page);
 		
 		if ($newEEC && $newEEC->save()) {
 			
@@ -41,7 +72,7 @@
     <tr>
       <td>Caption:</td>
       <td>
-        <input type="text" name="caption" maxlength="140" value="" />
+        <input type="text" name="caption" maxlength="139" value="" />
       </td>
     </tr>
     <tr>
@@ -50,6 +81,26 @@
         <input type="text" name="embed_code" maxlength="3000" value="" />
       </td>
     </tr>
+		<tr>
+			<td>Visible</td>
+			<td><input type="checkbox" name="visible" value="1" /></td>
+		</tr>
+		<tr>
+			<td>Author</td>
+			<td><input type="text" name="author" maxlength="39" value="" /></td>
+		</tr>
+		<tr>
+			<td>Author Email</td>
+			<td><input type="text" name="author_email" maxlength="79" value="" /></td>
+		</tr>
+		<tr>
+			<td>Route for Page</td>
+			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
     <tr>
       <td colspan="2">
         <input type="submit" name="submit" value="Go" />

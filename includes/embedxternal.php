@@ -28,11 +28,19 @@ class EmbedXternal extends DatabaseObject {
 	 * Instantiate an EmbedXternal
 	 * based on $caption and $embed_code
 	 ***/
-  public static function make($caption="No caption", $embed_code="") {
+  public static function make($caption='', $embed_code='', $visible='',
+		$author='', $author_email='', $route_for_page='') {
     if (!empty($embed_code)) {
       $eEC = new self();
+			// Attribute values: assigned all but id
       $eEC->caption = $caption;
       $eEC->embed_code = $embed_code;
+			$eEC->visible = $visible;
+			$eEC->time_created = strftime("%Y-%m-%d %H:%M:%S", time());
+			$eEC->author = $author;
+			$eEC->author_email = $author_email;
+			$eEC->route_for_page = $route_for_page;
+
       return $eEC;
     } else {
       return false;
