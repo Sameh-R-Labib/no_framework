@@ -41,7 +41,7 @@ $charge = \Stripe\Charge::create(array(
 
 $author = trim($_POST['author']);
 $authoremail = trim($_POST['authoremail']);
-$comment = trim($_POST['comment']);
+$body = trim($_POST['body']);
 
 // Save the comment
 

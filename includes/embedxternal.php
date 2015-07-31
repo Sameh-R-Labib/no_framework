@@ -1,12 +1,19 @@
 <?php
 
-class EmbededExternalContent extends DatabaseObject {
+class EmbedXternal extends DatabaseObject {
 	
 	protected static $table_name="embededexternalcontent";
-	protected static $db_fields=['id', 'caption', 'embed_code'];
+	protected static $db_fields=['id', 'caption', 'embed_code', 'visible',
+		'author', 'author_email', 'caption', 'route_for_page', 'time_created'];
 	public $id;
 	public $caption;
 	public $embed_code;
+	public $visible;
+	public $author;
+	public $author_email;
+	public $caption;
+	public $route_for_page;
+	public $time_created;
 	
 	
 	// destroy()
@@ -19,7 +26,7 @@ class EmbededExternalContent extends DatabaseObject {
   }
 	
   /***
-	 * Instantiate an EmbededExternalContent
+	 * Instantiate an EmbedXternal
 	 * based on $caption and $embed_code
 	 ***/
   public static function make($caption="No caption", $embed_code="") {
