@@ -2,7 +2,7 @@
 
 class EmbedXternal extends DatabaseObject {
 	
-	protected static $table_name="embededexternalcontent";
+	protected static $table_name="embedxternal";
 	protected static $db_fields=['id', 'caption', 'embed_code', 'visible',
 		'author', 'author_email', 'route_for_page', 'time_created'];
 	public $id;
