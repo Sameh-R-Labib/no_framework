@@ -1,37 +1,62 @@
-<?php
-  require("../includes/initialize.php");
-	
-	$embededEC_id = HOMEPAGEEMBEDEDECID;
-?>
+<?php require("../includes/initialize.php"); ?>
 
 <?php include_layout_template('home_header.php'); ?>
 
-<h2>Meetup next Thu July 30th, 2015 6:30 PM Glen Burnie, MD</h2>
+<a href="helpme/index.php">Public Page &raquo;</a><br />
+
+<h2>Welcome Page</h2>
 
 <?php echo output_message($message); ?>
 
-<p>
-<a href="http://www.meetup.com/Linthicum-no_framework-PHP-Project/events/224046847/">RSVP</a>
-<br /> <b>To see who's interested and what they bring to the table.</b></p>
+<?php
+// Retrieve the EmbedXternal Object from db.
+$eEO = EmbedXternal::find_by_id(HOMEPAGEEMBEDEDECID);
+if(!$eEO) {
+  $session->message("The embed external content could not be retrieved.");
+  redirect_to('index.php');
+}
 
-<p>Link to <a href="helpme/index.php">public</a> area.</p>
+// Output the embed code
+echo $eEO->embed_code;
 
-<iframe width="853" height="480" src="https://www.youtube.com/embed/wdCdMTBS_qg" frameborder="0" allowfullscreen></iframe>
+$comments = $eEO->comments();
+
+
+?>
+
+<p>For a fee you can enter a comment for this video and/or add a video page like this one. The subject matter must contribute to the growth of this project. So,
+your content will appear pending approval.</p>
 
 <form action="charge_creditcard.php" method="POST">
   <table>
     <tr>
-      <td>Name:</td>
-      <td><input type="text" name="author" value="" /></td>
+      <td>Author</td>
+      <td><input type="text" name="author" maxlength="39" value="" /></td>
     </tr>
     <tr>
-      <td>Email (won't show<br />next to your post:)</td>
-      <td><input type="text" name="authoremail" value="" /></td>
+      <td>Author Email (won't show in post)</td>
+      <td><input type="text" name="author_email" maxlength="79" value="" /></td>
     </tr>
     <tr>
-      <td>Comment:</td>
-      <td><textarea name="body" cols="70" rows="2"></textarea></td>
+      <td>Comment for this Welcome Page. Your comment can have some HTML tags except for &lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
+      <td><textarea name="body" maxlength="3500" cols="70" rows="2"></textarea></td>
     </tr>
+    <tr>
+      <td>Embed Code for a Video Page</td>
+      <td>
+        <input type="text" name="embed_code" maxlength="3000" value="" />
+      </td>
+    </tr>
+    <tr>
+      <td>Caption for Video</td>
+      <td>
+        <input type="text" name="caption" maxlength="139" value="" />
+      </td>
+    </tr>
+		<tr>
+			<td>Unique File Name for Your Video Page like "suggestion_for_homepage". It can't have spaces. And I'll be adding the file extension.</td>
+			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
+		</tr>
   </table>
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -44,5 +69,24 @@
     data-zip-code="true">
   </script>
 </form>
+
+<h3>Comments</h3>
+
+<div id="comments">
+  <?php foreach($comments as $comment): ?>
+    <div class="comment" style="margin-bottom: 2em;">
+      <div class="author">
+        <?php echo htmlentities($comment->author); ?> wrote:
+      </div>
+      <div class="body">
+        <?php echo strip_tags($comment->body, '<strong><em><p>'); ?>
+      </div>
+      <div class="meta-info" style="font-size: 0.8em;">
+        <?php echo datetime_to_text($comment->created); ?>
+      </div>
+    </div>
+  <?php endforeach; ?>
+  <?php if(empty($comments)) { echo "No Comments."; } ?>
+</div>
 
 <?php include_layout_template('home_footer.php'); ?>

@@ -94,14 +94,8 @@
 			<td>Route (i.e. /helpme/index.php)</td>
 			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
 		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-		</tr>
     <tr>
-      <td colspan="2">
-        <input type="submit" name="submit" value="Go" />
-      </td>
+      <td colspan="2"><input type="submit" name="submit" value="Go" /></td>
     </tr>
   </table>
 </form>

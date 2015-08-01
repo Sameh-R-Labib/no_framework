@@ -26,9 +26,9 @@ class EmbedXternal extends DatabaseObject {
 	
   /***
 	 * Instantiate an EmbedXternal
-	 * based on $caption and $embed_code
+	 * based on $embed_code and other less important data.
 	 ***/
-  public static function make($caption='', $embed_code='', $visible=1,
+  public static function make($caption='', $embed_code='', $visible=0,
 		$author='', $author_email='', $route_for_page='') {
     if (!empty($embed_code)) {
       $eEC = new self();
