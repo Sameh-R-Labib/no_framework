@@ -8,7 +8,7 @@
 		} else {
 			$caption = '';
 		}
-    if (isset($_POST['embed_code]')) {
+    if (isset($_POST['embed_code'])) {
     	$embed_code = trim($_POST['embed_code']);
     } else {
     	$embed_code = '';
