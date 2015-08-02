@@ -26,7 +26,8 @@ class EmbedXternal extends DatabaseObject {
 	
   /***
 	 * Instantiate an EmbedXternal
-	 * based on $embed_code and other less important data.
+	 * NOTE: make() does NOT handle id AT ALL because make() is
+	 *       just a custom version of instantiate().
 	 ***/
   public static function make($caption='', $embed_code='', $visible=0,
 		$author='', $author_email='', $route_for_page='') {

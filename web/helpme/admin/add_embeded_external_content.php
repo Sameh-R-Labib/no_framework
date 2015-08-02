@@ -1,8 +1,11 @@
 <?php
-  require("../../../includes/initialize.php");
+// INCLUDE INITIALIZE ?>
+<?php require("../../../includes/initialize.php"); ?>
 
-  if (isset($_POST['submit'])) {
-		// Transfer POST data to vars
+<?PHP // PROCESS A SUBMITTED FORM'S DATA ?>
+<?php if (isset($_POST['submit'])) {
+
+		// PREPARE DATA SET WHICH CAME FROM SUBMIT
 		if (isset($_POST['caption'])) {
 			$caption = trim($_POST['caption']);
 		} else {
@@ -13,14 +16,12 @@
     } else {
     	$embed_code = '';
     }
-		// Checkbox
- 		if(isset($_POST['visible']) && $_POST['visible'] == '1') {
+ 		if (isset($_POST['visible']) && $_POST['visible'] == '1') {
 			$visible = 1;
 		} else {
 			$visible = 0;
 		}
-		// Text
-    if (isset($_POST['author'])) {
+	  if (isset($_POST['author'])) {
     	$author = $_POST['author'];
     } else {
     	$author = '';
@@ -36,16 +37,16 @@
     	$route_for_page = '';
     }
  		
-		// Instantiate EmbedXternal object
+		// INSTANTIATE AN EmbedXternal OBJECT
 		$newEEC = EmbedXternal::make($caption, $embed_code, $visible,
 		$author, $author_email, $route_for_page);
 
+		// SAVE THAT OBJECT
 		if (!$newEEC) {
 			$session->message('Unable to instantiate the EmbedXternal object
 				because $embed_code was empty.');
 			redirect_to('add_embeded_external_content.php');
 		}
-
 		if ($newEEC->save()) {
 			$session->message("Your embed was saved.");
 			redirect_to('add_embeded_external_content.php');
@@ -53,17 +54,22 @@
 			$session->message("Unable to save the EmbedXternal object.");
 			redirect_to('add_embeded_external_content.php');
 		}
-	}
-?>
-
+} ?>
+	
+<?php // DISPLAY THE FORM FOR ACCEPTING A NEW EmbedXternal OBJECT ?>
+<?PHP // SHOW TOP OF THE PAGE  ?>
 <?php include_layout_template('admin_header.php'); ?>
 
+<?PHP // SHOW BACK LINK ?>
 <a href="index.php">&laquo; Back</a><br /><br />
 
+<?PHP // SHOW TITLE OF THE PAGE ?>
 <h2>Add Embeded External Content to Its Database Table</h2>
 
+<?PHP // SHOW MESSAGE ?>
 <?php echo output_message($message); ?>
 
+<?PHP // SHOW FORM ?>
 <form action="add_embeded_external_content.php" method="post">
   <table>
     <tr>
@@ -99,4 +105,6 @@
     </tr>
   </table>
 </form>
+
+<?PHP // SHOW BOTTOM OF THE PAGE ?>
 <?php include_layout_template('admin_footer.php'); ?>
