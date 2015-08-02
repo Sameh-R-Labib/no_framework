@@ -1,6 +1,8 @@
 <?php
-// INCLUDE INITIALIZE ?>
-<?php require("../../../includes/initialize.php"); ?>
+// INCLUDE INITIALIZE AND KICK OUT IF NOT LOGGED IN
+require("../../../includes/initialize.php");
+if (!$session->is_logged_in()) { redirect_to("login.php"); }
+?>
 
 <?PHP // PROCESS A SUBMITTED FORM'S DATA ?>
 <?php if (isset($_POST['submit'])) {

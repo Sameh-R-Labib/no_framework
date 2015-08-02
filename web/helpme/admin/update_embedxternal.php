@@ -1,6 +1,7 @@
 <?php
-	// INCLUDE INITIALIZE 
-	require("../../../includes/initialize.php");
+// INCLUDE INITIALIZE AND KICK OUT IF NOT LOGGED IN
+require("../../../includes/initialize.php");
+if (!$session->is_logged_in()) { redirect_to("login.php"); }
 ?>
 
 <?php	// Am I responding to a POST request?
@@ -60,7 +61,7 @@ if (isset($_POST['submit'])) {
 	$author, $author_email, $route_for_page);
 	if (!$newEEC) {
 		$session->message('Unable to instantiate the EmbedXternal object
-			because $embed_code was empty.');
+			probably because $embed_code was empty.');
 		redirect_to("update_embedxternal.php/id=".$id);
 	}
 	
@@ -71,10 +72,10 @@ if (isset($_POST['submit'])) {
 
 	// UPDATE THAT OBJECT
 	if ($newEEC->update()) {
-		$session->message("Your embed was updated.");
+		$session->message("Your embed was updated in the database.");
 		redirect_to("update_embedxternal.php/id=".$id);
 	} else {
-		$session->message("Unable to update the EmbedXternal object.");
+		$session->message("Unable to update EmbedXternal in the database.");
 		redirect_to("update_embedxternal.php/id=".$id);
 	}
 }
@@ -89,7 +90,7 @@ if(!empty($_GET['id'] && is_numeric($_GET['id']))) {
 	
 	$eXC = EmbedXternal::find_by_id($_GET['id']);
   if(!$eXC) {
-    $session->message("The EmbedXternal could not be located.");
+    $session->message("The EmbedXternal could not be retrieved from the database.");
     redirect_to('list_embedxternal.php');
   }
 	
