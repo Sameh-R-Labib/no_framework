@@ -99,7 +99,7 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 			<td><input type="text" name="author_email" maxlength="79" value="" /></td>
 		</tr>
 		<tr>
-			<td>Route (i.e. /helpme/index.php)</td>
+			<td>Hyperlink Text</td>
 			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
 		</tr>
     <tr>

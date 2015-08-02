@@ -148,7 +148,7 @@ if($visible) {
 			<td><input type="text" name="author_email" maxlength="79" value="<?php echo $author_email; ?>" /></td>
 		</tr>
 		<tr>
-			<td>Route (i.e. /helpme/index.php)</td>
+			<td>Hyperlink Text</td>
 			<td><input type="text" name="route_for_page" maxlength="255" value="<?php echo $route_for_page; ?>" /></td>
 		</tr>
     <tr>

@@ -1,0 +1,5 @@
+fontName = "DejaVu Sans Mono"
+fontSize = 14
+
+[ "*.{txt,md,mdown,markdown}" ]
+softWrap = true

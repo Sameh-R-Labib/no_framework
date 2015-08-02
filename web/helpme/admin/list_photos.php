@@ -27,7 +27,7 @@
     <td><?php echo $photo->size_as_text(); ?></td>
     <td><?php echo $photo->type; ?></td>
     <td>
-      <a href="comments.php?id=<?php echo $photo->id; ?>">
+      <a href="video.php?id=<?php echo $photo->id; ?>">
         <?php echo count($photo->comments()); ?>
       </a>
     </td>
