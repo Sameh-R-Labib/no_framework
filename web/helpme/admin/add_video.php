@@ -47,14 +47,14 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 		if (!$newEEC) {
 			$session->message('Unable to instantiate the EmbedXternal object
 				because $embed_code was empty.');
-			redirect_to('add_embeded_external_content.php');
+			redirect_to('add_video.php');
 		}
 		if ($newEEC->save()) {
 			$session->message("Your embed was saved.");
-			redirect_to('add_embeded_external_content.php');
+			redirect_to('add_video.php');
 		} else {
 			$session->message("Unable to save the EmbedXternal object.");
-			redirect_to('add_embeded_external_content.php');
+			redirect_to('add_video.php');
 		}
 } ?>
 	
@@ -72,7 +72,7 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 <?php echo output_message($message); ?>
 
 <?PHP // SHOW FORM ?>
-<form action="add_embeded_external_content.php" method="post">
+<form action="add_video.php" method="post">
   <table>
     <tr>
       <td>Caption:</td>
