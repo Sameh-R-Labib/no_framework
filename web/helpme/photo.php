@@ -67,7 +67,7 @@
         <?php echo htmlentities($comment->author); ?> wrote:
       </div>
       <div class="body">
-        <?php echo strip_tags($comment->body, '<strong><em><p>'); ?>
+        <?php echo strip_tags($comment->body, '<a><strong><em><p>'); ?>
       </div>
       <div class="meta-info" style="font-size: 0.8em;">
         <?php echo datetime_to_text($comment->created); ?>

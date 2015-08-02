@@ -48,13 +48,13 @@ your content will appear pending approval.</p>
       </td>
     </tr>
     <tr>
-      <td>Caption for Video</td>
+      <td>Caption for Video (some html tags ok)</td>
       <td>
         <input type="text" name="caption" maxlength="139" value="" />
       </td>
     </tr>
 		<tr>
-			<td>Unique File Name for Your Video Page like "suggestion_for_homepage". It can't have spaces. And I'll be adding the file extension.</td>
+			<td>Hyperlink Text (no html tags)</td>
 			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
 		</tr>
   </table>
