@@ -21,7 +21,7 @@ class EmbedXternal extends DatabaseObject {
 	 * Get an enumerated array of Comment objects.
 	 ***/
   public function comments() {
-    return Comment::find_comments_on($this->id);
+    return CommentOnEmbedXternal::find_comments_on($this->id);
   }
 	
   /***

@@ -30,12 +30,12 @@
       // Important!  You could just let the page render from here. 
       // But then if the page is reloaded, the form will try 
       // to resubmit the comment. So redirect instead:
-      redirect_to("photo.php?id={$photo->id}");
+      redirect_to("photo.php?id=".$photo->id);
 
     } else {
       // Failed
       // Ordinarly we would have a $error to elaborate on the failre.
-      $message = "There was an error that prevented the comment from being saved.";
+      $message = "There was an error which prevented the comment from being saved.";
     }
   } else {
     // Always establish vars corresponding to submitted
@@ -57,7 +57,7 @@
 
 <div style="margin-left: 20px;">
   <img src="<?php echo $filepath; ?>" />
-  <p><?php echo $photo->caption; ?></p>
+  <div><?php echo $photo->caption; ?></div>
 </div>
 
 <div id="comments">
@@ -88,7 +88,7 @@
       </tr>
       <tr>
         <td>Your comment:</td>
-        <td><textarea name="body" cols="40" rows="8"><?php echo $body; ?></textarea></td>
+        <td><textarea name="body" cols="40" rows="8"></textarea></td>
       </tr>
       <tr>
         <td>&nbsp;</td>

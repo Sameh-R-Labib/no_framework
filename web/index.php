@@ -2,7 +2,7 @@
 
 <?php include_layout_template('home_header.php'); ?>
 
-<a href="helpme/index.php">Public Page &raquo;</a><br />
+<a href="helpme/video.php?id=2">Videos posted to BusCompanyX.com &raquo;</a><br />
 
 <h2>Welcome Page</h2>
 
@@ -12,7 +12,7 @@
 // Retrieve the EmbedXternal Object from db.
 $eEO = EmbedXternal::find_by_id(HOMEPAGEEMBEDEDECID);
 if(!$eEO) {
-  $session->message("The embed external content could not be retrieved.");
+  $session->message("The video could not be retrieved from the database.");
   redirect_to('index.php');
 }
 
@@ -38,7 +38,7 @@ your content will appear pending approval.</p>
       <td><input type="text" name="author_email" maxlength="79" value="" /></td>
     </tr>
     <tr>
-      <td>Comment for this Welcome Page. Your comment can have some HTML tags except for &lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
+      <td>Comment for this Welcome Page can have &lt;a&gt;&lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
       <td><textarea name="body" maxlength="3500" cols="70" rows="2"></textarea></td>
     </tr>
     <tr>
@@ -54,7 +54,7 @@ your content will appear pending approval.</p>
       </td>
     </tr>
 		<tr>
-			<td>Hyperlink Text (no html tags)</td>
+			<td>Hyperlink Text (NO html tags)</td>
 			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
 		</tr>
   </table>
