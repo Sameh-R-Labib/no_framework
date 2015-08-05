@@ -13,17 +13,17 @@ if(!$video) {
 
 if(isset($_POST['submit'])) {
   $author = trim($_POST['author']);
-	$author_email = trim($_POST['author_email']);
+  $author_email = trim($_POST['author_email']);
   $body = trim($_POST['body']);
 
   $new_comment = CommentOnEmbedXternal::make($video->id, $author_email, $author, $body);
-	
+
   if($new_comment && $new_comment->save()) {
  
     // No message needed; seeing the comment is proof enough.
 
-		// Send email asking Sameh to make comment visible.
-		$new_comment->try_to_send_notification();
+    // Send email asking Sameh to make comment visible.
+    $new_comment->try_to_send_notification();
 
     // You could let the page render from here. 
     // But then if the page is reloaded, the browser 
