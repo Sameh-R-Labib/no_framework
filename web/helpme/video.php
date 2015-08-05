@@ -17,26 +17,27 @@ if(isset($_POST['submit'])) {
   $body = trim($_POST['body']);
 
   $new_comment = CommentOnEmbedXternal::make($video->id, $author_email, $author, $body);
+	
   if($new_comment && $new_comment->save()) {
-    // comment saved
+ 
     // No message needed; seeing the comment is proof enough.
 
-		// Send email
+		// Send email asking Sameh to make comment visible.
 		$new_comment->try_to_send_notification();
 
-    // Important!  You could just let the page render from here. 
-    // But then if the page is reloaded, the form will try 
-    // to resubmit the comment. So redirect instead:
+    // You could let the page render from here. 
+    // But then if the page is reloaded, the browser 
+    // will make a POST request (rather than a GET.)
     redirect_to("video.php?id=".$video->id);
 
   } else {
-    // Failed
     // Ordinarly we would have a $error to elaborate on the failre.
     $message = "There was an error which prevented the comment from being saved.";
   }
 } else {
   $author = "";
   $body = "";
+	$author_email = "";
 }
 
 $comments = $video->comments();

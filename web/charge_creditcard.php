@@ -67,19 +67,19 @@ if(!empty($body)) {
 	// There is a Comment
 	
 	// Instantiate a CommentOnVideo
-	$comment_OEX = CommentOnVideo::make(HOMEPAGEEMBEDEDECID, $author, 	$author_email, $body, $visible_comment);
+	$commentOnVideo = CommentOnVideo::make(HOMEPAGEEMBEDEDECID, $author, 	$author_email, $body, $visible_comment);
 	
 	
-	if (!$comment_OEX) {
+	if (!$commentOnVideo) {
 		$session->message('Unable to instantiate the CommentOnVideo object
 			because $body was empty.');
 		redirect_to('index.php');
 	}
 
-	if ($comment_OEX->save()) {
+	if ($commentOnVideo->save()) {
 		
-		// Send email notification to Admin which includes a
-		// link to make this COMMENT visible.
+		// Email notification asking Sameh to make comment visible.
+		$commentOnVideo->try_to_send_notification();
 	
 		$message = "Your comment was saved. ";
 	} else {
@@ -92,19 +92,19 @@ if(!empty($embed_code)) {
 	// There is a Video
 	
 	// Instantiate an EmbedXternal
-	$newEEC = EmbedXternal::make($caption, $embed_code, $visible,
+	$newVideo = EmbedXternal::make($caption, $embed_code, $visible,
 	$author, $author_email, $route_for_page);
 	
-	if (!$newEEC) {
+	if (!$newVideo) {
 		$session->message('Unable to instantiate the EmbedXternal object
 			because $embed_code was empty.');
 		redirect_to('index.php');
 	}
 
-	if ($newEEC->save()) {
+	if ($newVideo->save()) {
 		
-		// Send email notification to Admin which includes a
-		// link to make this Video visible.
+		// Email notification asking Sameh to make video visible.
+		$newVideo->try_to_send_notification();
 		
 		$message .= "Your embed was saved.";
 	} else {
