@@ -1,48 +1,50 @@
 <?php
 
-class EmbedXternal extends DatabaseObject {
+class CommentOnVideo extends DatabaseObject {
+
+	protected static $table_name="commentonvideo";
+	protected static $db_fields=['id', 'author', 'author_email', 'body',
+	'visible_comment', 'current_time'];
 	
-	protected static $table_name="embedxternal";
-	protected static $db_fields=['id', 'caption', 'embed_code', 'visible',
-		'author', 'author_email', 'route_for_page', 'time_created'];
 	public $id;
-	public $caption;
-	public $embed_code;
-	public $visible;
 	public $author;
 	public $author_email;
-	public $route_for_page;
-	public $time_created;
-	
-	
-	/***
-	 * Get an enumerated array of Comment objects.
-	 ***/
-  public function comments() {
-    return CommentOnVideo::find_comments_on($this->id);
-  }
-	
+	public $body;
+	public $visible_comment;
+	public $current_time;
+
   /***
-	 * Instantiate an EmbedXternal. make() does NOT handle id because make() is
-	 * a custom version of instantiate().
+	 * Instantiate CommentOnVideo object based these parameters. make()
+	 * does NOT handle id because make() is a custom instantiate().
 	 ***/
-  public static function make($caption='', $embed_code='', $visible=0, $author='', $author_email='', $route_for_page='') {
+  public static function make($author='', $author_email='', $body='',
+	$visible_comment=0) {
+		
+    if (!empty($body) && !empty($author)) {
+      $cOV = new self();
 
-    if (!empty($embed_code)) {
-      $eEC = new self();
-			// Attribute values: assigned all but id
-      $eEC->caption = $caption;
-      $eEC->embed_code = $embed_code;
-			$eEC->visible = $visible;
-			$eEC->time_created = strftime("%Y-%m-%d %H:%M:%S", time());
-			$eEC->author = $author;
-			$eEC->author_email = $author_email;
-			$eEC->route_for_page = $route_for_page;
+      $cOV->author = $author;
+      $cOV->author_email = $author_email;
+			$cOV->body = $body;
+			$cOV->current_time = strftime("%Y-%m-%d %H:%M:%S", time());
+			$cOV->visible_comment = $visible_comment;
 
-      return $eEC;
+      return $cOV;
     } else {
 			return false;
     }
+  }
+
+	/**
+	 * Uses foreign key id rather than class id.
+	 * Finds comments on a video.
+	 */
+  public static function find_comments_on($video_id=0) {
+    global $database;
+    $sql = "SELECT * FROM ".static::$table_name;
+    $sql .= " WHERE photograph_id=".$database->escape_value($video_id);
+    $sql .= " ORDER BY current_time ASC";
+    return static::find_by_sql($sql);
   }
 
 	/**
@@ -54,15 +56,16 @@ class EmbedXternal extends DatabaseObject {
     $mail->From     = 'superuser@buscompanyx.com';
     $mail->FromName = 'BusCompanyX.com App';
     $mail->addAddress('superuser@buscompanyx.com', 'Sameh R. Labib');
-    $mail->Subject  = 'New video submitted';
+    $mail->Subject  = 'New video comment';
 
-    $created = datetime_to_text($this->time_created);
+    $created = datetime_to_text($this->current_time);
     $mail->Body     =<<<EMAILBODY
 
-A new video has been submitted at {$created} (EST time,)
-by{$this->author} {$this->author_email}
+A new comment has been received on a video.
 
-{$this->embed_code}
+At {$created}, {$this->author} (EST time) wrote:
+
+{$this->body}
 
 Sameh needs to make it visible (or not.)
 
@@ -70,8 +73,8 @@ EMAILBODY;
 
     return $mail->send();
   }
-
-
+	
+	
 	
 	// FUNCTIONS INHERITED FROM DATABASEOBJECT
 	
@@ -106,7 +109,7 @@ EMAILBODY;
 	 * Is this a field.
    ***/
   // private function has_attribute($attribute)
-	
+
   /***
    * Inserts this object into db table.
    ***/
@@ -143,6 +146,6 @@ EMAILBODY;
 	 * How many records in db?
    ***/
   // public static function count_all()
-}
 
+}
 ?>

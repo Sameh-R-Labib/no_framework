@@ -66,12 +66,12 @@ if (isset($_POST['body'])) {
 if(!empty($body)) {
 	// There is a Comment
 	
-	// Instantiate a CommentOnEmbedXternal
-	$comment_OEX = CommentOnEmbedXternal::make(HOMEPAGEEMBEDEDECID, $author, 	$author_email, $body, $visible_comment);
+	// Instantiate a CommentOnVideo
+	$comment_OEX = CommentOnVideo::make(HOMEPAGEEMBEDEDECID, $author, 	$author_email, $body, $visible_comment);
 	
 	
 	if (!$comment_OEX) {
-		$session->message('Unable to instantiate the CommentOnEmbedXternal object
+		$session->message('Unable to instantiate the CommentOnVideo object
 			because $body was empty.');
 		redirect_to('index.php');
 	}
@@ -83,7 +83,7 @@ if(!empty($body)) {
 	
 		$message = "Your comment was saved. ";
 	} else {
-		$message_buffer = "Unable to save the CommentOnEmbedXternal object. ";
+		$message_buffer = "Unable to save the CommentOnVideo object. ";
 		$flaged = true;
 	}
 }
