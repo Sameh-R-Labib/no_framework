@@ -27,8 +27,8 @@
     <td><?php echo $photo->size_as_text(); ?></td>
     <td><?php echo $photo->type; ?></td>
     <td>
-      <a href="video.php?id=<?php echo $photo->id; ?>">
-        <?php echo count($photo->comments()); ?>
+      <a href="comments.php?id=<?php echo $photo->id; ?>">
+        <?php echo $photo->comment_count(); ?>
       </a>
     </td>
     <td><a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a></td>
