@@ -23,6 +23,7 @@
 <h2>Comments on <?php echo $photo->filename; ?></h2>
 
 <?php echo output_message($message); ?>
+
 <div id="comments">
   <?php foreach($comments as $comment): ?>
     <div class="comment" style="margin-bottom: 2em;">
