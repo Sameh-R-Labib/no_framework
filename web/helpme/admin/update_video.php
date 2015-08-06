@@ -73,10 +73,10 @@ if (isset($_POST['submit'])) {
 	// UPDATE THAT OBJECT
 	if ($newEEC->update()) {
 		$session->message("Your embed was updated in the database.");
-		redirect_to("update_embedxternal.php/id=".$id);
+		redirect_to("update_embedxternal.php?id=".$id);
 	} else {
 		$session->message("Unable to update EmbedXternal in the database.");
-		redirect_to("update_embedxternal.php/id=".$id);
+		redirect_to("update_embedxternal.php?id=".$id);
 	}
 }
 ?>
@@ -91,7 +91,7 @@ if(!empty($_GET['id'] && is_numeric($_GET['id']))) {
 	$eXC = EmbedXternal::find_by_id($_GET['id']);
   if(!$eXC) {
     $session->message("The EmbedXternal could not be retrieved from the database.");
-    redirect_to('list_embedxternal.php');
+    redirect_to('list_videos.php');
   }
 	
 	// Copy the attribs to vars.
@@ -105,7 +105,7 @@ if(!empty($_GET['id'] && is_numeric($_GET['id']))) {
 include_layout_template('admin_header.php');
 ?>
 <a href="index.php">&laquo; Back</a><br /><br />
-<h2>Add Embeded External Content to Its Database Table</h2>
+<h2>Update This Video Embed Record</h2>
 
 <?php
 // SHOW MESSAGE
