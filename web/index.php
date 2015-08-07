@@ -92,7 +92,13 @@ your content will appear pending approval.</p>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="https://cdn.supportkit.io/supportkit.min.js"></script>
 <script>
-SupportKit.init({appToken: '3xsxvwci5p649stp0yi1by8dl'});
+SupportKit.init({
+  appToken: '3xsxvwci5p649stp0yi1by8dl',
+  givenName: 'App developer',
+  surname: 'Sam',
+  email: 'schoolbuscompany@gmail.com',
+  properties: {'jobTitle': 'business owner'}
+});
 </script>
 
 
