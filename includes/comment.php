@@ -34,6 +34,16 @@ class Comment extends DatabaseObject {
     $sql .= " ORDER BY created ASC";
     return static::find_by_sql($sql);
   }
+  
+  /**
+   * Quantity of comments on a particular photograph.
+   */
+  public static function quantity($photograph_id=0) {
+    global $database;
+    $sql = "SELECT COUNT(*) FROM ".static::$table_name;
+    $sql .= " WHERE photograph_id=".$database->escape_value($photograph_id);
+    return static::find_by_sql($sql);
+  }
 
 
   public function try_to_send_notification() {

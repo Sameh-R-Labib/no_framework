@@ -21,6 +21,13 @@ class EmbedXternal extends DatabaseObject {
   public function comments() {
     return CommentOnVideo::find_comments_on($this->id);
   }
+  
+  /**
+   * Count of comments for this EmbedXternal.
+   */
+  public function comment_count() {
+    return CommentOnVideo::quantity($this->id);
+  }
 	
   /***
 	 * Instantiate an EmbedXternal. make() does NOT handle id because make() is

@@ -3,10 +3,11 @@
 class CommentOnVideo extends DatabaseObject {
 
 	protected static $table_name="commentonvideo";
-	protected static $db_fields=['id', 'author', 'author_email', 'body',
+	protected static $db_fields=['id', 'video_id', 'author', 'author_email', 'body',
 	'visible_comment', 'current_time'];
 	
 	public $id;
+  public $video_id;
 	public $author;
 	public $author_email;
 	public $body;
@@ -17,7 +18,7 @@ class CommentOnVideo extends DatabaseObject {
 	 * Instantiate CommentOnVideo object based these parameters. make()
 	 * does NOT handle id because make() is a custom instantiate().
 	 ***/
-  public static function make($author='', $author_email='', $body='',
+  public static function make($video_id=0, $author='', $author_email='', $body='',
 	$visible_comment=0) {
 		
     if (!empty($body) && !empty($author)) {
@@ -46,6 +47,18 @@ class CommentOnVideo extends DatabaseObject {
     $sql .= " ORDER BY current_time ASC";
     return static::find_by_sql($sql);
   }
+  
+  /**
+   * Quantity of comments on a particular video.
+   */
+  public static function quantity($video_id=0) {
+    global $database;
+    $sql = "SELECT COUNT(*) FROM ".static::$table_name;
+    $sql .= " WHERE video_id=".$database->escape_value($video_id);
+    return static::find_by_sql($sql);
+  }
+  
+  
 
 	/**
 	 * Sends an email to superuser@buscompanyx.com informing Sameh that a
