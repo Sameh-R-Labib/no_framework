@@ -107,7 +107,7 @@ function datetime_to_text($datetime="") {
 }
 
 
-public function size_as_text($size) {
+function size_as_text($size) {
   if($size < 1024) {
     return "{$size} bytes";
   } elseif($size < 1048576) {

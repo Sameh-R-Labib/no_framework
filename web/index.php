@@ -19,7 +19,7 @@ if(!$eEO) {
 // Output the embed code
 echo $eEO->embed_code;
 
-$comments = $eEO->comments();
+//$comments = $eEO->comments();
 
 
 ?>
@@ -73,20 +73,20 @@ your content will appear pending approval.</p>
 <h3>Comments</h3>
 
 <div id="comments">
-  <?php foreach($comments as $comment): ?>
+  <?php //foreach($comments as $comment): ?>
     <div class="comment" style="margin-bottom: 2em;">
       <div class="author">
-        <?php echo htmlentities($comment->author); ?> wrote:
+        <?php //echo htmlentities($comment->author); ?> wrote:
       </div>
       <div class="body">
-        <?php echo strip_tags($comment->body, '<strong><em><p>'); ?>
+        <?php //echo strip_tags($comment->body, '<strong><em><p>'); ?>
       </div>
       <div class="meta-info" style="font-size: 0.8em;">
-        <?php echo datetime_to_text($comment->created); ?>
+        <?php //echo datetime_to_text($comment->created); ?>
       </div>
     </div>
-  <?php endforeach; ?>
-  <?php if(empty($comments)) { echo "No Comments."; } ?>
+    <?php //endforeach; ?>
+  <?php //if(empty($comments)) { echo "No Comments."; } ?>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
