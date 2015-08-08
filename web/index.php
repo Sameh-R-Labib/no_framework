@@ -1,31 +1,33 @@
-<?php require("../includes/initialize.php"); ?>
+<?php
+require("../includes/initialize.php");
+include_layout_template('home_header.php');
 
-<?php include_layout_template('home_header.php'); ?>
-
+// Link to user contributed videos
+?>
 <a href="helpme/video.php?id=2">Videos posted to BusCompanyX.com &raquo;</a><br />
 
 <h2>Welcome Page</h2>
 
-<?php echo output_message($message); ?>
-
 <?php
+// Display session message
+echo output_message($message);
+
+
 // Retrieve the EmbedXternal Object from db.
-$eEO = EmbedXternal::find_by_id(HOMEPAGEEMBEDEDECID);
-if(!$eEO) {
+$video = EmbedXternal::find_by_id(HOMEPAGEEMBEDEDECID);
+if(!$video) {
   $session->message("The video could not be retrieved from the database.");
   redirect_to('index.php');
 }
 
 // Output the embed code
-echo $eEO->embed_code;
+echo $video->embed_code;
 
-//$comments = $eEO->comments();
-
-
+// Get its comments
+$comments = $video->comments();
 ?>
 
-<p>For a fee you can enter a comment for this video and/or add a video page like this one. The subject matter must contribute to the growth of this project. So,
-your content will appear pending approval.</p>
+<p>If you make a credit card payment then you can enter a comment for this video and/or add a video page of your own. The topic must be constructive for this project. Your content will appear if approved.</p>
 
 <form action="charge_creditcard.php" method="POST">
   <table>
@@ -34,27 +36,23 @@ your content will appear pending approval.</p>
       <td><input type="text" name="author" maxlength="39" value="" /></td>
     </tr>
     <tr>
-      <td>Author Email (won't show in post)</td>
+      <td>Author Email - Fear not! It won't apear next to your post.</td>
       <td><input type="text" name="author_email" maxlength="79" value="" /></td>
     </tr>
     <tr>
-      <td>Comment for this Welcome Page can have &lt;a&gt;&lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
-      <td><textarea name="body" maxlength="3500" cols="70" rows="2"></textarea></td>
+      <td>Your comment about the video above. It can have &lt;a&gt;&lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
+      <td><textarea name="body" maxlength="3500" cols="110" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td>Embed Code for a Video Page</td>
-      <td>
-        <input type="text" name="embed_code" maxlength="3000" value="" />
-      </td>
+      <td>The Embed Code for a Video Page of Your Own</td>
+      <td><textarea name="embed_code" maxlength="3500" cols="110" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td>Caption for Video (some html tags ok)</td>
-      <td>
-        <input type="text" name="caption" maxlength="139" value="" />
-      </td>
+      <td>Caption for Video (some html tags are ok)</td>
+      <td><input type="text" name="caption" maxlength="139" value="" /></td>
     </tr>
 		<tr>
-			<td>Hyperlink Text (NO html tags)</td>
+			<td>A Title for Your Video (NO html tags)</td>
 			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
 		</tr>
   </table>
@@ -73,20 +71,20 @@ your content will appear pending approval.</p>
 <h3>Comments</h3>
 
 <div id="comments">
-  <?php //foreach($comments as $comment): ?>
+  <?php foreach($comments as $comment): ?>
     <div class="comment" style="margin-bottom: 2em;">
       <div class="author">
-        <?php //echo htmlentities($comment->author); ?> wrote:
+        <?php echo htmlentities($comment->author); ?> wrote:
       </div>
       <div class="body">
-        <?php //echo strip_tags($comment->body, '<strong><em><p>'); ?>
+        <?php echo strip_tags($comment->body, '<strong><em><p>'); ?>
       </div>
       <div class="meta-info" style="font-size: 0.8em;">
-        <?php //echo datetime_to_text($comment->created); ?>
+        <?php echo datetime_to_text($comment->created); ?>
       </div>
     </div>
-    <?php //endforeach; ?>
-  <?php //if(empty($comments)) { echo "No Comments."; } ?>
+  <?php endforeach; ?>
+  <?php if(empty($comments)) { echo "No Comments."; } ?>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>

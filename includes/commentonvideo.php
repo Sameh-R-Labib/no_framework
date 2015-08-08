@@ -14,27 +14,29 @@ class CommentOnVideo extends DatabaseObject {
 	public $visible_comment;
 	public $current_time;
 
+
   /***
 	 * Instantiate CommentOnVideo object based these parameters. make()
 	 * does NOT handle id because make() is a custom instantiate().
 	 ***/
-  public static function make($video_id=0, $author='', $author_email='', $body='',
-	$visible_comment=0) {
+  public static function make($video_id, $author='', $author_email='', $body='',	$visible_comment=0) {
 		
     if (!empty($body) && !empty($author)) {
-      $cOV = new self();
+      $comment = new self();
 
-      $cOV->author = $author;
-      $cOV->author_email = $author_email;
-			$cOV->body = $body;
-			$cOV->current_time = strftime("%Y-%m-%d %H:%M:%S", time());
-			$cOV->visible_comment = $visible_comment;
+      $comment->video_id        = $video_id;
+      $comment->author          = $author;
+      $comment->author_email    = $author_email;
+			$comment->body            = $body;
+			$comment->current_time    = strftime("%Y-%m-%d %H:%M:%S", time());
+			$comment->visible_comment = $visible_comment;
 
-      return $cOV;
+      return $comment;
     } else {
 			return false;
     }
   }
+
 
 	/**
 	 * Uses foreign key id rather than class id.
@@ -43,10 +45,11 @@ class CommentOnVideo extends DatabaseObject {
   public static function find_comments_on($video_id=0) {
     global $database;
     $sql = "SELECT * FROM ".static::$table_name;
-    $sql .= " WHERE photograph_id=".$database->escape_value($video_id);
+    $sql .= " WHERE video_id=".$database->escape_value($video_id);
     $sql .= " ORDER BY current_time ASC";
     return static::find_by_sql($sql);
   }
+
   
   /**
    * Quantity of comments on a particular video.
@@ -55,9 +58,11 @@ class CommentOnVideo extends DatabaseObject {
     global $database;
     $sql = "SELECT COUNT(*) FROM ".static::$table_name;
     $sql .= " WHERE video_id=".$database->escape_value($video_id);
-    return static::find_by_sql($sql);
+    
+    $result_set = $database->query($sql);
+    $result_array = $database->fetch_array($result_set);
+    return !empty($result_array) ? array_shift($result_array) : false;
   }
-  
   
 
 	/**
