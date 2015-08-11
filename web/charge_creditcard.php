@@ -6,6 +6,8 @@
 [stripeEmail]     => schoolbuscompany@gmail.com
 */
 
+$flagged = false;
+
 if ( !isset($_POST['stripeToken']) ) {
   $session->message("You've erroneously accessed a page directly.");
   redirect_to('index.php');
@@ -84,7 +86,7 @@ if(!empty($body)) {
 		$message = "Your comment was saved. ";
 	} else {
 		$message_buffer = "Unable to save the CommentOnVideo object. ";
-		$flaged = true;
+		$flagged = true;
 	}
 }
 
@@ -106,14 +108,14 @@ if(!empty($embed_code)) {
 		// Email notification asking Sameh to make video visible.
 		$newVideo->try_to_send_notification();
 		
-		$message .= "Your embed was saved.";
+		$message .= "Your video embed was saved.";
 	} else {
 		$session->message($message_buffer."Unable to save the EmbedXternal object.");
 		redirect_to('index.php');
 	}
 }
 
-if($flaged) {
+if($flagged) {
 	$session->message($message_buffer);
 	redirect_to('index.php');
 }
