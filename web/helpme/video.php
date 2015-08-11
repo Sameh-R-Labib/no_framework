@@ -1,4 +1,12 @@
 <?php
+/**
+ * Always takes a video id as a GET parameter.
+ * Shows the video.
+ * If comment form data was submitted as POST data then save it in the database.
+ * Presents all approved comments for this video.
+ * Presents a form for submitting a comment.
+ */
+
 require("../../includes/initialize.php");
 if (empty($_GET['id'])) {
   $session->message("No video ID was provided.");
@@ -20,7 +28,7 @@ if(isset($_POST['submit'])) {
 
   if($new_comment && $new_comment->save()) {
  
-    // No message needed; seeing the comment is proof enough.
+    $session->message("Your comment was submitted and will appear pending approval.");
 
     // Send email asking Sameh to make comment visible.
     $new_comment->try_to_send_notification();
@@ -73,7 +81,7 @@ include_layout_template('header.php');
 <div id="comment-form">
   <h3>New Comment for the video on this page</h3>
   <?php echo output_message($message); ?>
-  <form action="photo.php?id=<?php echo $photo->id; ?>" method="post">
+  <form action="video.php?id=<?php echo $video->id; ?>" method="post">
     <table>
       <tr>
         <td>Your name:</td>
