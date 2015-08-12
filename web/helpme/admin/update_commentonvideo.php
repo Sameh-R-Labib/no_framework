@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 	}
   
 	// INSTANTIATE A CommentOnVideo OBJECT
-	$comment = CommentOnVideo::make( , $author, $author_email, $body, $visible_comment);
+	$comment = CommentOnVideo::make($video_id, $author, $author_email, $body, $visible_comment);
 	if (!$comment) {
 		$session->message('Unable to instantiate the CommentOnVideo object.');
 		redirect_to("update_commentonvideo.php?id=".$id);
