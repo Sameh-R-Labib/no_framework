@@ -1,5 +1,13 @@
 <?php
 /**
+ * Enables a public user to:
+ * 1. View video w/ id=#
+ * 2. View its comments
+ * 3. Submit a comment for it
+ */
+
+
+/**
  * Always takes a video id as a GET parameter.
  * Shows the video.
  * If comment form data was submitted as POST data then save it in the database.

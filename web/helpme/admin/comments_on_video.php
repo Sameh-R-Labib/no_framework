@@ -1,4 +1,8 @@
 <?php
+/**
+ * Enables an admin to access the individual comments to update them.
+ */
+
 require("../../../includes/initialize.php");
 if (!$session->is_logged_in()) { redirect_to("login.php"); }
 

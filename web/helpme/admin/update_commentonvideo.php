@@ -1,5 +1,9 @@
 <?php
 /**
+ * Enables admin to update a CommentOnVideo record.
+ */
+
+/**
  * This script INITIALLY runs when it is called with a comment id in the query string
  * of a GET request. Any other time this script runs it will be in response to a POST
  * request w/o a query string.

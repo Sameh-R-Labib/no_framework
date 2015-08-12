@@ -1,4 +1,8 @@
 <?php
+/**
+ * Delete & redirect.
+ */
+
 require("../../../includes/initialize.php");
 
 // Kick back if not logged in as an admin

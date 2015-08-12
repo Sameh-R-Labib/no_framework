@@ -1,4 +1,11 @@
 <?php
+/**
+ * Allows public users to:
+ *   1. See Welcome Video
+ *   2. Submit comment for Welcome Video, or
+ *   3. Submit Their Own Video
+ *   4. View comments of others for Welcome Video
+ */
 require("../includes/initialize.php");
 include_layout_template('home_header.php');
 

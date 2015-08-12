@@ -1,4 +1,9 @@
 <?php
+/**
+ * Enables an admin to add his/her own video embed to BusCompanyX.com.
+ */
+
+
 // INCLUDE INITIALIZE AND KICK OUT IF NOT LOGGED IN
 require("../../../includes/initialize.php");
 if (!$session->is_logged_in()) { redirect_to("login.php"); }

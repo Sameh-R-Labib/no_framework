@@ -39,7 +39,7 @@ require(VENDOR_DIR.DS.'autoload.php');
 // Initialize $database and its alias
 $database = new MySQLDatabase();
 $db =& $database;
-// Initializ $session and $message
+// Initialize $session and $message
 $session = new Session();
 $message = $session->message();
 

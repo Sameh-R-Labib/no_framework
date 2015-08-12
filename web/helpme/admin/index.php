@@ -1,4 +1,8 @@
 <?php
+/**
+ * Presents links to admin scripts.
+ */
+
 require('../../../includes/initialize.php');
 if (!$session->is_logged_in()) { redirect_to("login.php"); }
 ?>
@@ -11,7 +15,7 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 
 <?php echo output_message($message); ?>
 <ul>
-  <li><a href="add_embeded_external_content.php">Add Embeded External Content to Its Database Table</a></li>
+  <li><a href="add_video.php">Add Video to Database</a></li>
   <li><a href="list_photos.php">List Photos</a></li>
   <li><a href="photo_upload.php">Photo Upload</a></li>
   <li><a href="logfile.php">View Log file</a></li>
