@@ -71,7 +71,9 @@ include_layout_template('header.php');
 <br />
 
 <div style="margin-left: 20px;">
+
   <?php echo $video->embed_code; ?>
+  
   <div><?php echo $video->caption; ?></div>
 </div>
 
