@@ -27,6 +27,12 @@ if(!$video) {
   redirect_to('../index.php');
 }
 
+// Kick out if video id is for a non-visible video.
+if(!$video->visible) {
+  $session->message("Your attempt to view a hidden video was denied.");
+  redirect_to('../index.php');
+}
+
 if(isset($_POST['submit'])) {
   $author = trim($_POST['author']);
   $author_email = trim($_POST['author_email']);
@@ -56,7 +62,7 @@ if(isset($_POST['submit'])) {
 	$author_email = "";
 }
 
-$comments = $video->comments();
+$comments = $video->visible_comments();
 
 include_layout_template('header.php');
 ?>
