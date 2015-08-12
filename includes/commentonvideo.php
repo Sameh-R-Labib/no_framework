@@ -49,6 +49,19 @@ class CommentOnVideo extends DatabaseObject {
     $sql .= " ORDER BY current_time ASC";
     return static::find_by_sql($sql);
   }
+  
+  
+  /**
+   * Finds the visible comments for a video.
+   */
+  public static function find_visible_comments_on($video_id=0) {
+    global $database;
+    $sql = "SELECT * FROM ".static::$table_name;
+    $sql .= " WHERE video_id=".$database->escape_value($video_id);
+    $sql .= " AND visible_comment=1";
+    $sql .= " ORDER BY current_time ASC";
+    return static::find_by_sql($sql);
+  }
 
   
   /**

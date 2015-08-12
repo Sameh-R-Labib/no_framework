@@ -23,6 +23,14 @@ class EmbedXternal extends DatabaseObject {
   }
   
   /**
+   * Get an array of visible comments for this EmbedXternal object.
+   */
+  public function visible_comments() {
+    return CommentOnVideo::find_visible_comments_on($this->id);
+  }
+  
+  
+  /**
    * Count of comments for this EmbedXternal.
    */
   public function comment_count() {
