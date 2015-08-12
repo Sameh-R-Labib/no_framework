@@ -1,4 +1,14 @@
 <?php
+/**
+ * This script INITIALLY runs when it is called with a comment id in the query string
+ * of a GET request. Any other time this script runs it will be in response to a POST
+ * request w/o a query string.
+ * 
+ * When it's a GET the comment will be retrieved and used to pre-populate a form.
+ * When it's a POST the comment will be updated.
+ */
+
+
 // INCLUDE INITIALIZE AND KICK OUT IF NOT LOGGED IN
 require("../../../includes/initialize.php");
 if (!$session->is_logged_in()) { redirect_to("login.php"); }
@@ -12,8 +22,15 @@ if (isset($_POST['submit'])) {
 	if (isset($_POST['id'])) {
 		$id = $_POST['id'];
 	} else {
-		$id = '';
+		$session->message('Something went wrong: Missing comment id.');
+		redirect_to("update_commentonvideo.php");
 	}
+  if (isset($_POST['video_id'])) {
+    $video_id = $_POST['video_id'];
+  } else {
+		$session->message('Something went wrong: Missing video id.');
+		redirect_to("update_commentonvideo.php?id=".$id);
+  }
 	// current_time will be reset by make() so there is no sense
 	// dealing with it at all in this script
 	if (isset($_POST['author'])) {
@@ -38,10 +55,10 @@ if (isset($_POST['submit'])) {
 	}
   
 	// INSTANTIATE A CommentOnVideo OBJECT
-	$comment = CommentOnVideo::make($author, $author_email, $body, $visible_comment);
+	$comment = CommentOnVideo::make( , $author, $author_email, $body, $visible_comment);
 	if (!$comment) {
 		$session->message('Unable to instantiate the CommentOnVideo object.');
-		redirect_to("update_commentonvideo.php/id=".$id);
+		redirect_to("update_commentonvideo.php?id=".$id);
 	}
 
 	// ASSIGN THE OBJECT ITS ORIGINAL ID
@@ -74,6 +91,9 @@ if(!empty($_GET['id'] && is_numeric($_GET['id']))) {
 	// Copy the attribs to vars.
 	$attributes = $comment->attributes();
 	extract($attributes);
+} else {
+  $session->message("You are NOT supposed to access this page directly.");
+  redirect_to('index.php');
 }
 
 // SHOW TOP OF THE PAGE
@@ -98,6 +118,7 @@ if($visible) {
 
 <form action="update_commentonvideo.php" method="post">
 	<input type="hidden" name="id" value="<?php echo $id; ?>" />
+	<input type="hidden" name="video_id" value="<?php echo $video_id; ?>" />
   <table>
     <tr>
       <td>Author:</td>
