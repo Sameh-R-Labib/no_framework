@@ -35,7 +35,7 @@ include_layout_template('header.php');
 foreach($videos as $video):
 ?>
   <div style="float: left; margin-left: 20px;">
-    <div><a href="video.php?id=<?php echo $video->id; ?>">$video->route_for_page</a></div>
+    <div><a href="video.php?id=<?php echo $video->id; ?>"><?php echo $video->route_for_page; ?></a></div>
     <p><?php echo $video->caption; ?></p>
   </div>
 <?php
