@@ -11,7 +11,7 @@ class EmbedXternal extends DatabaseObject {
 	public $visible;
 	public $author;
 	public $author_email;
-	public $route_for_page;
+	public $route_for_page; // Title for the video.
 	public $time_created;
 	
 	
@@ -28,7 +28,18 @@ class EmbedXternal extends DatabaseObject {
   public function visible_comments() {
     return CommentOnVideo::find_visible_comments_on($this->id);
   }
-  
+
+  /***
+	 * How many visible records?
+   ***/
+  public static function count_of_visible_videos() {
+    global $database;
+    $sql = "SELECT COUNT(*) FROM ".self::$table_name;
+    $sql .= " WHERE visible=1";
+    $result_set = $database->query($sql);
+    $row = $database->fetch_array($result_set);
+    return array_shift($row);
+  }
   
   /**
    * Count of comments for this EmbedXternal.

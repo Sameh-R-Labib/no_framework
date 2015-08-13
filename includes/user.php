@@ -12,7 +12,10 @@ class User extends DatabaseObject {
   public $organization;
   public $role;
 
-  // Returns the full name or an empty string
+
+  /**
+   * Returns the full name or an empty string
+   */
   public function full_name() {
     if(isset($this->first_name) && isset($this->last_name)) {
       return $this->first_name . " " . $this->last_name;
@@ -21,8 +24,10 @@ class User extends DatabaseObject {
     }
   }
 
-  // Search for user then return user object if found.
-  // Otherwise, return false.
+
+  /**
+   * Search for user then return user object if found. Otherwise, return false.
+   */
   public static function authenticate($username="", $password="") {
     global $database;
     $username = $database->escape_value($username);

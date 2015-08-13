@@ -1,36 +1,39 @@
 <?php
-  require("../../../includes/initialize.php");
+require("../../../includes/initialize.php");
 
-  // no reason to waist time if logged in.
-  if($session->is_logged_in()) {
+// no reason to waist time if logged in.
+if($session->is_logged_in()) {
+  redirect_to("index.php");
+}
+
+if (isset($_POST['submit'])) {
+  $username = trim($_POST['username']);
+  $password = trim($_POST['password']);
+
+  // User::authenticate returns a user object or false.
+  $found_user = User::authenticate($username, $password);
+
+  if ($found_user) {
+    $session->login($found_user);
+    log_action('Login', "{$found_user->username} logged in.");
     redirect_to("index.php");
+  } else {
+    // username/password combo was not found in the database
+    $message = "Username/password combination incorrect.";
   }
+} else { // Form has not been submitted.
+  $username = "";
+  $password = "";
+  $message = "";
+}
 
-  // Remember to give your form's submit tag a name="submit" attribute!
-  if (isset($_POST['submit'])) { // Form has been submitted.
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-
-    // Check database to see if username/password exist.
-    $found_user = User::authenticate($username, $password);
-
-    if ($found_user) {
-      $session->login($found_user);
-      log_action('Login', "{$found_user->username} logged in.");
-      redirect_to("index.php");
-    } else {
-      // username/password combo was not found in the database
-      $message = "Username/password combination incorrect.";
-    }
-  } else { // Form has not been submitted.
-    $username = "";
-    $password = "";
-    $message = "";
-  }
+include_layout_template('admin_header.php');
 ?>
-<?php include_layout_template('admin_header.php'); ?>
+
 <h2>Staff Login</h2>
+
 <?php echo output_message($message); ?>
+
 <form action="login.php" method="post">
   <table>
     <tr>
