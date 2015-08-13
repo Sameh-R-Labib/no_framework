@@ -1,6 +1,8 @@
 <?php
 /**
  * Lists all the visible user contributed videos as hyperlinked text.
+ * Uses pagination.
+ * Gets/puts video id from/to session; Or, just uses the query string value.
  *
  */
 require("../../includes/initialize.php");
@@ -18,6 +20,7 @@ $count_of_visible_videos = EmbedXternal::count_of_visible_videos();
 $pagination = new Pagination($visible_videos_page_number, $per_page, $count_of_visible_videos);
 
 $sql = "SELECT * FROM embedxternal ";
+$sql .= "WHERE visible=1 ";
 $sql .= "LIMIT {$per_page} ";
 $sql .= "OFFSET {$pagination->offset()}";
 
