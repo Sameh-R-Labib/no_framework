@@ -7,13 +7,13 @@
  */
 require("../../includes/initialize.php");
 
-// $page_number gets its value from the session if a page number is there.
-// Otherwise, $page number=1.
-$page_number = $session->visible_videos_page() ? $session->visible_videos_page() : 1;
+// $vv_page_number gets its value from $Session if a page number is there and that page number is not Zero (0.)
+// Otherwise, $vv_page_number gets the value One (1.)
+$vv_page_number = ($session->visible_videos_page_number()) ? $session->visible_videos_page_number() : 1;
 
-// If $_GET['page'] has a valid page number the use that page number.
-// Otherwise, use $page_number as the page number.
-$visible_videos_page_number = !empty($_GET['page']) ? (int)$_GET['page'] : $page_number;
+// If $_GET['page'] has a valid page number use that page number instead.
+// Otherwise, use $vv_page_number as the page number.
+$visible_videos_page_number = !empty($_GET['page']) ? (int)$_GET['page'] : $vv_page_number;
 $per_page = 2;
 $count_of_visible_videos = EmbedXternal::count_of_visible_videos();
 

@@ -20,6 +20,7 @@ class Session {
   public function message($msg="") {
     if (!empty($msg)) {
       $_SESSION['message'] = $msg;
+      // Ordinarily here we would ALSO set the attribute $message but for practical reasons we will not do so.
     } else {
       return $this->message;
     }
@@ -36,9 +37,16 @@ class Session {
    */
   public function visible_videos_page_number($visible_videos_page_number=0) {
     if ($visible_videos_page_number) {
+      // THIS IS THE CASE WHERE AN ARGUMENT HAS BEEN PASSED TO THIS METHOD
       $_SESSION['visible_videos_page_number'] = $visible_videos_page_number;
+      // Ordinarily here we would ALSO set the attribute; But, for practical reasons we will not do so.
     } else {
+      // THIS IS THE CASE WHERE IT IS NOT PASSED AN ARGUMENT
       return $this->visible_videos_page_number;
+      // 1. It should return the stored page number if there is a stored page number in the attribute.
+      // 2. It should return false if there is NOT a stored page number in the attribute.
+      // HOWEVER IT IS OKAY AS IT IS BECAUSE 0 AND FALSE ARE THE SAME THING AND THE ATTRIBUTE WILL BE 0 IF
+      // THE SESSION VARIABLE IS NOT SET.
     }
   }
 
@@ -52,6 +60,7 @@ class Session {
     session_start();
     $this->get_message_from_session();
     $this->get_login_status_from_session();
+    $this->get_visible_videos_page_number_from_session();
     if($this->logged_in) {
       // actions to take right away if user is logged in
     } else {
@@ -90,8 +99,8 @@ class Session {
 
   
   /**
-   * Simply the fact that isset($_SESSION['user_id']) means the user is logged in. And if that is
-   * the case then appropriately set the session objects attributes.
+   * If and only if isset($_SESSION['user_id']) then the user is logged in. This method
+   * will appropriately set the attributes.
    */
   private function get_login_status_from_session() {
     if(isset($_SESSION['user_id'])) {
@@ -115,6 +124,19 @@ class Session {
       unset($_SESSION['message']);
     } else {
       $this->message = "";
+    }
+  }
+
+
+  /**
+   * 
+   */
+  private function get_visible_videos_page_number_from_session() {
+    if (isset($_SESSION['visible_videos_page_number'])) {
+      $this->visible_videos_page_number = $_SESSION['visible_videos_page_number'];
+      unset($_SESSION['visible_videos_page_number']);
+    } else {
+      $this->visible_videos_page_number = 0;
     }
   }
 
