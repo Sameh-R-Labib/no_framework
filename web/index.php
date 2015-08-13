@@ -38,29 +38,31 @@ $comments = $video->visible_comments();
 
 <form action="charge_creditcard.php" method="POST">
   <table>
+  <col width="200">
+  <col width="400">
     <tr>
-      <td>Author</td>
-      <td><input type="text" name="author" maxlength="39" value="" /></td>
+      <td height="50">Full Name - Don't be shy!</td>
+      <td height="50"><input type="text" name="author" maxlength="39" value="" /></td>
     </tr>
     <tr>
-      <td>Author Email - Fear not! It won't apear next to your post.</td>
-      <td><input type="text" name="author_email" maxlength="79" value="" /></td>
+      <td height="50">Author Email - It won't apear next to your post.</td>
+      <td height="50"><input type="text" name="author_email" maxlength="79" value="" /></td>
     </tr>
     <tr>
-      <td>Your comment about the video above. It can have &lt;a&gt;&lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
-      <td><textarea name="body" maxlength="3500" cols="110" rows="3"></textarea></td>
+      <td height="75">Your comment about the video above. It can have &lt;a&gt;&lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
+      <td height="75"><textarea name="body" maxlength="3500" cols="52" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td>The Embed Code for a Video Page of Your Own</td>
-      <td><textarea name="embed_code" maxlength="3500" cols="110" rows="3"></textarea></td>
+      <td height="75">The Embed Code for your video:</td>
+      <td height="75"><textarea name="embed_code" maxlength="3500" cols="52" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td>Caption for Video (some html tags are ok)</td>
-      <td><input type="text" name="caption" maxlength="139" value="" /></td>
+      <td height="50">Caption for Video (some html tags are ok)</td>
+      <td height="50"><input type="text" name="caption" maxlength="139" value="" /></td>
     </tr>
 		<tr>
-			<td>A Title for Your Video (NO html tags)</td>
-			<td><input type="text" name="route_for_page" maxlength="255" value="" /></td>
+			<td height="50">A Title for Your Video (NO html tags)</td>
+			<td height="50"><input type="text" name="route_for_page" maxlength="255" value="" /></td>
 		</tr>
   </table>
   <script
@@ -91,7 +93,7 @@ $comments = $video->visible_comments();
       </div>
     </div>
   <?php endforeach; ?>
-  <?php if(empty($comments)) { echo "No Comments."; } ?>
+  <?php if(empty($comments)) { echo "No Comments yet!"; } ?>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
