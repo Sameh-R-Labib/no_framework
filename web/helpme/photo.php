@@ -57,7 +57,7 @@
 
 <div style="margin-left: 20px;">
   <img src="<?php echo $filepath; ?>" />
-  <div><?php echo $photo->caption; ?></div>
+  <div><?php echo strip_tags($photo->caption, '<a><strong><em><p>'); ?></div>
 </div>
 
 <div id="comments">
@@ -84,7 +84,7 @@
     <table>
       <tr>
         <td>Your name:</td>
-        <td><input type="text" name="author" value="<?php echo $author; ?>" /></td>
+        <td><input type="text" name="author" value="<?php echo htmlentities($author); ?>" /></td>
       </tr>
       <tr>
         <td>Your comment:</td>

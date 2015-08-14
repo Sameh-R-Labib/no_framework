@@ -20,7 +20,7 @@
 <a href="list_photos.php">&laquo; Back</a><br />
 <br />
 
-<h2>Comments on <?php echo $photo->filename; ?></h2>
+<h2>Comments on <?php echo htmlentities($photo->filename); ?></h2>
 
 <?php echo output_message($message); ?>
 
@@ -31,13 +31,13 @@
         <?php echo htmlentities($comment->author); ?> wrote:
       </div>
       <div class="body">
-        <?php echo strip_tags($comment->body, '<strong><em><p>'); ?>
+        <?php echo strip_tags($comment->body, '<a><strong><em><p>'); ?>
       </div>
       <div class="meta-info" style="font-size: 0.8em;">
         <?php echo datetime_to_text($comment->created); ?>
       </div>
       <div class="actions" style="font-size: 0.8em;">
-        <a href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete Comment</a>
+        <a href="delete_comment.php?id=<?php echo htmlentities($comment->id); ?>">Delete Comment</a>
       </div>
     </div>
   <?php endforeach; ?>

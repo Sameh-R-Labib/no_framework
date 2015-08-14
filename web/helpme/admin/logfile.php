@@ -17,10 +17,6 @@ if ( isset($_GET['clear']) && $_GET['clear'] == 'true') {
 }
 
 include_layout_template('admin_header.php');
-
-/////
-// HTML
-/////
 ?>
 
 <a href="index.php">&laquo; Back</a><br /><br />
@@ -31,10 +27,6 @@ include_layout_template('admin_header.php');
 
 
 <?php
-/////
-// PHP
-/////
-
 if (file_exists($logfile) && is_readable($logfile) && $handle = fopen($logfile, 'r')) {
   echo "<ul class=\"log-entries\">";
   while(!feof($handle)) {

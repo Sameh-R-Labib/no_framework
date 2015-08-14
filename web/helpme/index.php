@@ -37,7 +37,7 @@
     <a href="photo.php?id=<?php echo $photo->id; ?>">
       <img src="<?php echo $filepath; ?>" width="200" />
     </a>
-    <p><?php echo $photo->caption; ?></p>
+    <p><?php echo strip_tags($photo->caption, '<a><strong><em><p>'); ?></p>
   </div>
 <?php endforeach; ?>
 

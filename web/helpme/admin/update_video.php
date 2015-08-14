@@ -125,19 +125,15 @@ if($visible) {
 }
 ?>
 <form action="update_embedxternal.php" method="post">
-	<input type="hidden" name="id" value="<?php echo $id; ?>" />
+	<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>" />
   <table>
     <tr>
       <td>Caption:</td>
-      <td>
-        <input type="text" name="caption" maxlength="139" value="<?php echo $caption; ?>" />
-      </td>
+      <td><input type="text" name="caption" maxlength="139" value="<?php echo htmlentities($caption); ?>" /></td>
     </tr>
     <tr>
       <td>Embed Code:</td>
-      <td>
-        <input type="text" name="embed_code" maxlength="3000" value="<?php echo $embed_code; ?>" />
-      </td>
+      <td><input type="text" name="embed_code" maxlength="3000" value="<?php echo htmlentities($embed_code); ?>" /></td>
     </tr>
 		<tr>
 			<td>Visible</td>
@@ -145,15 +141,15 @@ if($visible) {
 		</tr>
 		<tr>
 			<td>Author</td>
-			<td><input type="text" name="author" maxlength="39" value="<?php echo $author; ?>" /></td>
+			<td><input type="text" name="author" maxlength="39" value="<?php echo htmlentities($author); ?>" /></td>
 		</tr>
 		<tr>
 			<td>Author Email</td>
-			<td><input type="text" name="author_email" maxlength="79" value="<?php echo $author_email; ?>" /></td>
+			<td><input type="text" name="author_email" maxlength="79" value="<?php echo htmlentities($author_email); ?>" /></td>
 		</tr>
 		<tr>
 			<td>Hyperlink Text</td>
-			<td><input type="text" name="route_for_page" maxlength="255" value="<?php echo $route_for_page; ?>" /></td>
+			<td><input type="text" name="route_for_page" maxlength="255" value="<?php echo htmlentities($route_for_page); ?>" /></td>
 		</tr>
     <tr>
       <td colspan="2"><input type="submit" name="submit" value="Go" /></td>

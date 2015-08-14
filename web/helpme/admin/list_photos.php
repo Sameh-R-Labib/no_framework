@@ -22,16 +22,16 @@
 <?php foreach($photos as $photo): ?>
   <tr>
     <td><img src="../../<?php echo $photo->image_path(); ?>" width="100" /></td>
-    <td><?php echo $photo->filename; ?></td>
-    <td><?php echo $photo->caption; ?></td>
+    <td><?php echo htmlentities($photo->filename); ?></td>
+    <td><?php echo htmlentities($photo->caption); ?></td>
     <td><?php echo $photo->size_as_text(); ?></td>
     <td><?php echo $photo->type; ?></td>
     <td>
-      <a href="comments.php?id=<?php echo $photo->id; ?>">
+      <a href="comments.php?id=<?php echo htmlentities($photo->id); ?>">
         <?php echo $photo->comment_count(); ?>
       </a>
     </td>
-    <td><a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a></td>
+    <td><a href="delete_photo.php?id=<?php echo htmlentities($photo->id); ?>">Delete</a></td>
   </tr>
 <?php endforeach; ?>
 </table>

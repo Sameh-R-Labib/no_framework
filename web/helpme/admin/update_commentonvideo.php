@@ -121,19 +121,19 @@ if($visible) {
 ?>
 
 <form action="update_commentonvideo.php" method="post">
-	<input type="hidden" name="id" value="<?php echo $id; ?>" />
-	<input type="hidden" name="video_id" value="<?php echo $video_id; ?>" />
+	<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>" />
+	<input type="hidden" name="video_id" value="<?php echo htmlentities($video_id); ?>" />
   <table>
     <tr>
       <td>Author:</td>
       <td>
-        <input type="text" name="author" maxlength="39" value="<?php echo $author; ?>" />
+        <input type="text" name="author" maxlength="39" value="<?php echo htmlentities($author); ?>" />
       </td>
     </tr>
     <tr>
       <td>Author Email:</td>
       <td>
-        <input type="text" name="author_email" maxlength="79" value="<?php echo $author_email; ?>" />
+        <input type="text" name="author_email" maxlength="79" value="<?php echo htmlentities($author_email); ?>" />
       </td>
     </tr>
 		<tr>
@@ -142,7 +142,7 @@ if($visible) {
 		</tr>
 		<tr>
 			<td>Comment can have &lt;a&gt;&lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
-			<td><textarea name="body" maxlength="3500" cols="70" rows="2"><?php echo $body; ?></textarea></td>
+			<td><textarea name="body" maxlength="3500" cols="70" rows="2"><?php echo strip_tags($body, '<a><strong><em><p>'); ?></textarea></td>
 		</tr>
     <tr>
       <td colspan="2"><input type="submit" name="submit" value="Go" /></td>

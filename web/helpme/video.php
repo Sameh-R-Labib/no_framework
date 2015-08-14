@@ -74,7 +74,7 @@ include_layout_template('header.php');
 
   <?php echo $video->embed_code; ?>
   
-  <div><?php echo $video->caption; ?></div>
+  <div><?php echo htmlentities($video->caption); ?></div>
 </div>
 
 <div id="comments">
@@ -97,15 +97,15 @@ include_layout_template('header.php');
 <div id="comment-form">
   <h3>New Comment for the video on this page</h3>
   <?php echo output_message($message); ?>
-  <form action="video.php?id=<?php echo $video->id; ?>" method="post">
+  <form action="video.php?id=<?php echo htmlentities($video->id); ?>" method="post">
     <table>
       <tr>
         <td>Your name:</td>
-        <td><input type="text" name="author" value="<?php echo $author; ?>" /></td>
+        <td><input type="text" name="author" value="<?php echo htmlentities($author); ?>" /></td>
       </tr>
       <tr>
         <td>Your email (is only for our admin's use):</td>
-        <td><input type="text" name="author" value="<?php echo $author_email; ?>" /></td>
+        <td><input type="text" name="author" value="<?php echo htmlentities($author_email); ?>" /></td>
       </tr>
       <tr>
         <td>Your comment:</td>

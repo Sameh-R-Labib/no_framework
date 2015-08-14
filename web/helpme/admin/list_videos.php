@@ -46,9 +46,9 @@ foreach($videos as $video):
     <td><?php echo htmlentities($video->author); ?></td>
     <td><?php echo htmlentities($video->author_email); ?></td>
     <td><?php echo datetime_to_text($video->time_created); ?></td>
-    <td><a href="update_video.php?id=<?php echo $video->id; ?>">Update</a></td>
-    <td><a href="delete_video.php?id=<?php echo $video->id; ?>">Delete</a></td>
-    <td><a href="comments_on_video.php?id=<?php echo $video->id; ?>"><?php echo $video->comment_count();?></td>
+    <td><a href="update_video.php?id=<?php echo htmlentities($video->id); ?>">Update</a></td>
+    <td><a href="delete_video.php?id=<?php echo htmlentities($video->id); ?>">Delete</a></td>
+    <td><a href="comments_on_video.php?id=<?php echo htmlentities($video->id); ?>"><?php echo $video->comment_count();?></td>
   </tr>
 <?php
 endforeach;
