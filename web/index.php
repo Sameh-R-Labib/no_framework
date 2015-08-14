@@ -39,7 +39,7 @@ $comments = $video->visible_comments();
 
 <form action="charge_creditcard.php" method="POST">
   <table>
-  <col width="200">
+  <col width="280">
   <col width="400">
     <tr>
       <td height="50">Full Name (real name please)</td>
