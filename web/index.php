@@ -11,7 +11,8 @@ include_layout_template('home_header.php');
 
 // Link to user contributed videos
 ?>
-<a href="helpme/visible_videos.php">Videos by people to improve BusCompanyX.com functionality &raquo;</a><br />
+<a href="helpme/visible_videos.php">Videos by people to improve BusCompanyX.com functionality &raquo;</a>
+ || <a href="helpme/admin/index.php">admin &raquo;</a><br /><br />
 
 <h2>Welcome Page</h2>
 

@@ -12,6 +12,6 @@ BusCompanyX.com home
   </head>
   <body>
     <div id="header">
-      <h1>BusCompanyX.com: home</h1>
+      <h1>BusCompanyX.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;School Bus Contractor Software</h1>
     </div>
     <div id="main">
