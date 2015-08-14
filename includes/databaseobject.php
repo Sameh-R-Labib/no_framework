@@ -148,7 +148,7 @@ class DatabaseObject {
     $row = $database->fetch_array($result_set);
     return array_shift($row);
   }
-}
+
 
 
   /***
@@ -226,4 +226,5 @@ class DatabaseObject {
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
   }
+}
 ?>
