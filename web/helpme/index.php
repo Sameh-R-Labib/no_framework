@@ -19,7 +19,7 @@
 
   // Instead of finding all records, just find the records 
   // for this page
-  $sql = "SELECT * FROM photographs ";
+  $sql = "SELECT * FROM `photographs` ";
   $sql .= "LIMIT {$per_page} ";
   $sql .= "OFFSET {$pagination->offset()}";
   $photos = Photograph::find_by_sql($sql);

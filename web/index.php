@@ -34,7 +34,7 @@ echo $video->embed_code;
 $comments = $video->visible_comments();
 ?>
 
-<p>If you make a credit card payment then you can enter a comment for this video and/or add a video page of your own. The topic must be constructive for this project. Your content will appear if approved.</p>
+<p>For a small fee you can enter a comment and/or add a video. The topic must be constructive and relevant to this project. Your content will display if/when approved.</p>
 
 <form action="charge_creditcard.php" method="POST">
   <table>

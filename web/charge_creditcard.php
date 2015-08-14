@@ -71,7 +71,6 @@ if(!empty($body)) {
 	// Instantiate a CommentOnVideo
 	$commentOnVideo = CommentOnVideo::make(HOMEPAGEEMBEDEDECID, $author, 	$author_email, $body, $visible_comment);
 	
-	
 	if (!$commentOnVideo) {
 		$session->message('Unable to instantiate the CommentOnVideo object
 			because $body was empty.');

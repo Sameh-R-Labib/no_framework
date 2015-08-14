@@ -33,9 +33,9 @@ class User extends DatabaseObject {
     $username = $database->escape_value($username);
     $password = $database->escape_value($password);
 
-    $sql  = "SELECT * FROM users ";
-    $sql .= "WHERE username = '{$username}' ";
-    $sql .= "AND password = '{$password}' ";
+    $sql  = "SELECT * FROM `users` ";
+    $sql .= "WHERE `username` = '{$username}' ";
+    $sql .= "AND `password` = '{$password}' ";
     $sql .= "LIMIT 1";
     $result_array = static::find_by_sql($sql);
     return !empty($result_array) ? array_shift($result_array) : false;

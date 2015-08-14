@@ -19,8 +19,8 @@ $count_of_visible_videos = EmbedXternal::count_of_visible_videos();
 
 $pagination = new Pagination($visible_videos_page_number, $per_page, $count_of_visible_videos);
 
-$sql = "SELECT * FROM embedxternal ";
-$sql .= "WHERE visible=1 ";
+$sql = "SELECT * FROM `embedxternal` ";
+$sql .= "WHERE `visible`=1 ";
 $sql .= "LIMIT {$per_page} ";
 $sql .= "OFFSET {$pagination->offset()}";
 

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Comment class must exist.
+ */
 
 class Photograph extends DatabaseObject {
 	

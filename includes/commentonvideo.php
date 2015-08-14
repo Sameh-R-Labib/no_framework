@@ -57,9 +57,9 @@ class CommentOnVideo extends DatabaseObject {
   public static function find_visible_comments_on($video_id=0) {
     global $database;
     $sql = "SELECT * FROM ".static::$table_name;
-    $sql .= " WHERE video_id=".$database->escape_value($video_id);
-    $sql .= " AND visible_comment=1";
-    $sql .= " ORDER BY current_time ASC";
+    $sql .= " WHERE `video_id`=".$database->escape_value($video_id);
+    $sql .= " AND `visible_comment`=1";
+    $sql .= " ORDER BY `current_time` ASC";
     return static::find_by_sql($sql);
   }
 
@@ -70,7 +70,7 @@ class CommentOnVideo extends DatabaseObject {
   public static function quantity($video_id=0) {
     global $database;
     $sql = "SELECT COUNT(*) FROM ".static::$table_name;
-    $sql .= " WHERE video_id=".$database->escape_value($video_id);
+    $sql .= " WHERE `video_id`=".$database->escape_value($video_id);
     
     $result_set = $database->query($sql);
     $result_array = $database->fetch_array($result_set);

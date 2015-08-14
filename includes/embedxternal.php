@@ -35,7 +35,7 @@ class EmbedXternal extends DatabaseObject {
   public static function count_of_visible_videos() {
     global $database;
     $sql = "SELECT COUNT(*) FROM ".self::$table_name;
-    $sql .= " WHERE visible=1";
+    $sql .= " WHERE `visible`=1";
     $result_set = $database->query($sql);
     $row = $database->fetch_array($result_set);
     return array_shift($row);

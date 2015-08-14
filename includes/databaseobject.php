@@ -27,7 +27,7 @@ class DatabaseObject {
     global $database;
 		
     $result_array = static::find_by_sql("SELECT * FROM ".static::$table_name."
-			WHERE id=".$database->escape_value($id)." LIMIT 1");
+			WHERE `id`=".$database->escape_value($id)." LIMIT 1");
 		
     return !empty($result_array) ? array_shift($result_array) : false;
   }
@@ -109,16 +109,19 @@ class DatabaseObject {
     global $database;
  
     $attributes = $this->sanitized_attributes();
-    $sql = "INSERT INTO ".static::$table_name." (";
-    $sql .= join(", ", array_keys($attributes));
-    $sql .= ") VALUES ('";
+    $sql = "INSERT INTO ".static::$table_name." (`";
+    $sql .= join("`, `", array_keys($attributes));
+    $sql .= "`) VALUES ('";
     $sql .= join("', '", array_values($attributes));
     $sql .= "')";
 
+
+    // DEBUG CODE
 		//echo("<pre>");
 		//echo("$sql");
 		//echo("</pre>");
 		//die("Debug code in create method of databaseobject");
+
 
     if($database->query($sql)) {
       $this->id = $database->insert_id();
@@ -137,11 +140,11 @@ class DatabaseObject {
     $attributes = $this->sanitized_attributes();
     $attribute_pairs = [];
     foreach($attributes as $key => $value) {
-      $attribute_pairs[] = "{$key}='{$value}'";
+      $attribute_pairs[] = "`{$key}`='{$value}'";
     }
     $sql = "UPDATE ".static::$table_name." SET ";
     $sql .= join(", ", $attribute_pairs);
-    $sql .= " WHERE id=". $database->escape_value($this->id);
+    $sql .= " WHERE `id`=". $database->escape_value($this->id);
 
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
@@ -164,7 +167,7 @@ class DatabaseObject {
     global $database;
 
     $sql = "DELETE FROM ".static::$table_name." ";
-    $sql .= "WHERE id=". $database->escape_value($this->id);
+    $sql .= "WHERE `id`=". $database->escape_value($this->id);
     $sql .= " LIMIT 1";
 
     $database->query($sql);

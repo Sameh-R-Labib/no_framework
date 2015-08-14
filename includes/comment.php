@@ -30,7 +30,7 @@ class Comment extends DatabaseObject {
   public static function find_comments_on($photo_id=0) {
     global $database;
     $sql = "SELECT * FROM " . static::$table_name;
-    $sql .= " WHERE photograph_id=" .$database->escape_value($photo_id);
+    $sql .= " WHERE `photograph_id`=" .$database->escape_value($photo_id);
     $sql .= " ORDER BY created ASC";
     return static::find_by_sql($sql);
   }

@@ -16,9 +16,9 @@ class Pagination {
 
   public function offset() {
     // Assuming 20 items per page:
-    // page 1 has an offset of 0    (1-1) * 20
-    // page 2 has an offset of 20   (2-1) * 20
-    //   in other words, page 2 starts with item 21
+    // page 1 has a database offset 0    (1-1) * 20
+    // page 2 has a database offset of 20   (2-1) * 20
+    //   in other words, page 2 starts with the 21st item (that would have been returned had all been returned.)
     return ($this->current_page - 1) * $this->per_page;
   }
 
