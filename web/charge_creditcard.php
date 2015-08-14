@@ -93,7 +93,7 @@ if(!empty($embed_code)) {
 	// There is a Video
 	
 	// Instantiate an EmbedXternal
-	$newVideo = EmbedXternal::make($caption, $embed_code, $visible,
+	$newVideo = EmbedXternal::make($caption, $embed_code, $visible_video,
 	$author, $author_email, $route_for_page);
 	
 	if (!$newVideo) {
