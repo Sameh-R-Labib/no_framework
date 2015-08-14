@@ -127,8 +127,6 @@ if($flagged) {
 
 <?php echo output_message($message); ?>
 
-<pre><?php echo print_r($_POST); ?></pre>
-
 <a href="index.php">&laquo; Home Page</a><br />
 
 <?php
