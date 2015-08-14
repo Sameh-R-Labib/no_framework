@@ -92,13 +92,11 @@ class CommentOnVideo extends DatabaseObject {
     $created = datetime_to_text($this->current_time);
     $mail->Body     =<<<EMAILBODY
 
-A new comment has been received on a video.
-
-At {$created}, {$this->author} (EST time) wrote:
+A new comment has been received on a video at {$created} (EST time), {$this->author} wrote:
 
 {$this->body}
 
-Sameh needs to make it visible (or not.)
+Sameh needs to make this comment visible (or not.)
 
 EMAILBODY;
 

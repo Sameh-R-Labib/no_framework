@@ -85,12 +85,11 @@ class EmbedXternal extends DatabaseObject {
     $created = datetime_to_text($this->time_created);
     $mail->Body     =<<<EMAILBODY
 
-A new video has been submitted at {$created} (EST time,)
-by{$this->author} {$this->author_email}
+A new video has been submitted at {$created} (EST time,) by {$this->author} {$this->author_email}
 
 {$this->embed_code}
 
-Sameh needs to make it visible (or not.)
+Sameh needs to make this video visible (or not.)
 
 EMAILBODY;
 
