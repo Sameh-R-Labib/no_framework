@@ -140,13 +140,14 @@ class Photograph extends DatabaseObject {
   public function comments() {
     return Comment::find_comments_on($this->id);
   }
-}
 
-/**
- * Count of comments for this Photograph.
- */
-public function comment_count() {
-  return Comment::quantity($this->id);
-}
 
+ /**
+  * Count of comments for this Photograph.
+  */
+  public function comment_count() {
+    return Comment::quantity($this->id);
+  }
+
+}
 ?>
