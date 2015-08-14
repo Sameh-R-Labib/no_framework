@@ -92,14 +92,14 @@ if (isset($_POST['submit'])) {
 if(!empty($_GET['id'] && is_numeric($_GET['id']))) {
 	// Then assume it's a GET request
 	
-	$eXC = EmbedXternal::find_by_id($_GET['id']);
-  if(!$eXC) {
+	$video = EmbedXternal::find_by_id($_GET['id']);
+  if(!$video) {
     $session->message("The EmbedXternal could not be retrieved from the database.");
     redirect_to('list_videos.php');
   }
 	
 	// Copy the attribs to vars.
-	$attributes = $eXC->attributes();
+	$attributes = $video->attributes();
 	extract($attributes);
 }
 ?>

@@ -2,51 +2,26 @@
 
 class DatabaseObject {
 	
+// DOESN'T HAVE ATTRIBUTES	
 	
-	
-	// Methods (a.k.a Functions)
-	
-	/* Termanology:
+
+
+// METHODS
+
+	/* Terms:
+	 * record == array whose elements correspond to attributes which correspond to db fields.
 	 * object == objectified record
-	 * record == arrayified record
 	 * array == array of records
 	 * field == static::$db_fields $field
 	 */
-	
-  /***
-	 * Give me an array of all the objects.
-   ***/
-  public static function find_all() {
-    return static::find_by_sql("SELECT * FROM ".static::$table_name);
-  }
+
+
+  // CLASS HELPERS
 
   /***
-   * Give me an object for this id.
-   ***/
-  public static function find_by_id($id=0) {
-    global $database;
-		
-    $result_array = static::find_by_sql("SELECT * FROM ".static::$table_name."
-			WHERE `id`=".$database->escape_value($id)." LIMIT 1");
-		
-    return !empty($result_array) ? array_shift($result_array) : false;
-  }
-
-  /***
-	 * Give me an array of objects for this sql.
-   ***/
-  public static function find_by_sql($sql="") {
-    global $database;
-    $result_set = $database->query($sql);
-    $object_array = array();
-    while ($row = $database->fetch_array($result_set)) {
-      $object_array[] = static::instantiate($row);
-    }
-    return $object_array;
-  }
-
-  /***
-   * Objectify this record.
+   * Objectify this record. Helps bring data from the database.
+   * Used when converting the return value of $database->fetch_array($result_set)
+   * to an object.
    ***/
   private static function instantiate($record) {
     // Could check that $record exists and is an array
@@ -64,19 +39,15 @@ class DatabaseObject {
     return $object;
   }
 
-  /***
-	 * Is this a field.
-   ***/
-  private function has_attribute($attribute) {
-    // We don't care about the value, we just want to know if the key exists
-    // Will return true or false
-    return array_key_exists($attribute, $this->attributes());
-  }
 
   /***
-	 * Extract a record from this object.
+	 * Extract a record from this object. Helps put data into the database.
+   * Helps put together the sanitized attributes which are
+   * used by create() and update() while preparing their sql.
+   * The only reason I made this method PUBLIC is so I can use it with
+   * extract() -- This type of thing is used in scripts which pre-populate web forms.
    ***/
-  protected function attributes() { 
+  public function attributes() {
     $attributes = [];
     foreach (static::$db_fields as $field) {
       if (property_exists($this, $field)) {
@@ -86,8 +57,11 @@ class DatabaseObject {
     return $attributes;
   }
 
+
   /***
-	 * Gets a db-escaped record from this object.
+	 * Gets a db-escaped record/array from this object.
+   * Actually it gets that array from attributes() which
+   * gets the array from the object.
    ***/
   protected function sanitized_attributes() {
 		global $database;
@@ -101,6 +75,25 @@ class DatabaseObject {
     }
     return $clean_attributes;
   }
+
+
+  /***
+	 * Is this a field.
+   ***/
+  private function has_attribute($attribute) {
+    // We don't care about the value, we just want to know if the key exists
+    // Will return true or false
+    return array_key_exists($attribute, $this->attributes());
+  }
+
+
+
+
+  //~~~
+  // CRUD (Create Read Update Delete)
+
+
+  // CREATE
 
   /***
    * Inserts this object into db table.
@@ -131,6 +124,71 @@ class DatabaseObject {
     }
   }
 
+
+  /***
+   * Save what this object has in the database.
+	 * Good if unsure whether to update or create.
+   ***/
+  public function save() {
+    // A new record won't have an id yet.
+    return isset($this->id) ? $this->update() : $this->create();
+  }
+
+
+
+  // READ
+
+  /***
+	 * How many records in db?
+   ***/
+  public static function count_all() {
+    global $database;
+    $sql = "SELECT COUNT(*) FROM ".static::$table_name;
+    $result_set = $database->query($sql);
+    $row = $database->fetch_array($result_set);
+    return array_shift($row);
+  }
+}
+
+
+  /***
+	 * Give me an array of all the objects.
+   ***/
+  public static function find_all() {
+    return static::find_by_sql("SELECT * FROM ".static::$table_name);
+  }
+
+
+  /***
+   * Give me an object for this id.
+   ***/
+  public static function find_by_id($id=0) {
+    global $database;
+		
+    $result_array = static::find_by_sql("SELECT * FROM ".static::$table_name."
+			WHERE `id`=".$database->escape_value($id)." LIMIT 1");
+		
+    return !empty($result_array) ? array_shift($result_array) : false;
+  }
+
+
+  /***
+	 * Give me an array of objects for this sql.
+   ***/
+  public static function find_by_sql($sql="") {
+    global $database;
+    $result_set = $database->query($sql);
+    $object_array = array();
+    while ($row = $database->fetch_array($result_set)) {
+      $object_array[] = static::instantiate($row);
+    }
+    return $object_array;
+  }
+
+
+
+  // UPDATE
+
   /***
    * Updates the db record using this object's attributes.
    ***/
@@ -150,14 +208,9 @@ class DatabaseObject {
     return ($database->affected_rows() == 1) ? true : false;
   }
 
-  /***
-   * Save what this object has in the database.
-	 * Good if unsure whether to update or create.
-   ***/
-  public function save() {
-    // A new record won't have an id yet.
-    return isset($this->id) ? $this->update() : $this->create();
-  }
+
+
+  // DELETE
 
   /***
    * Delete the db record for this object.
@@ -173,16 +226,4 @@ class DatabaseObject {
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
   }
-
-  /***
-	 * How many records in db?
-   ***/
-  public static function count_all() {
-    global $database;
-    $sql = "SELECT COUNT(*) FROM ".static::$table_name;
-    $result_set = $database->query($sql);
-    $row = $database->fetch_array($result_set);
-    return array_shift($row);
-  }
-}
 ?>
