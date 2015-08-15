@@ -113,7 +113,7 @@ include_layout_template('admin_header.php');
 echo output_message($message);
 
 // SHOW FORM
-if($visible) {
+if($visible_comment) {
 	$checkbox = '<input type="checkbox" name="visible" value="1" checked="checked" />';
 } else {
 	$checkbox = '<input type="checkbox" name="visible" value="1" />';
