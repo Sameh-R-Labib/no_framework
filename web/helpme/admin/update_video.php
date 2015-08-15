@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
 	if (!$newEEC) {
 		$session->message('Unable to instantiate the EmbedXternal object
 			probably because $embed_code was empty.');
-		redirect_to("update_embedxternal.php/id=".$id);
+		redirect_to("update_video.php/id=".$id);
 	}
 	
 	// ASSIGN THE OBJECT ITS ORIGINAL ID
@@ -77,10 +77,10 @@ if (isset($_POST['submit'])) {
 	// UPDATE THAT OBJECT
 	if ($newEEC->save()) {
 		$session->message("Your embed was updated in the database.");
-		redirect_to("update_embedxternal.php?id=".$id);
+		redirect_to("update_video.php?id=".$id);
 	} else {
 		$session->message("Unable to update EmbedXternal in the database.");
-		redirect_to("update_embedxternal.php?id=".$id);
+		redirect_to("update_video.php?id=".$id);
 	}
 }
 ?>
