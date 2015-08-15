@@ -87,7 +87,7 @@ include_layout_template('header.php');
         <?php echo strip_tags($comment->body, '<a><strong><em><p>'); ?>
       </div>
       <div class="meta-info" style="font-size: 0.8em;">
-        <?php echo datetime_to_text($comment->created); ?>
+        <?php echo datetime_to_text($comment->current_time); ?>
       </div>
     </div>
   <?php endforeach; ?>
