@@ -22,7 +22,7 @@ class CommentOnVideo extends DatabaseObject {
   public static function make($video_id, $author='', $author_email='', $body='',	$visible_comment=0) {
 		
     if (!empty($body) && !empty($author)) {
-      $comment = new self();
+      $comment = new static();
 
       $comment->video_id        = $video_id;
       $comment->author          = $author;

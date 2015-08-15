@@ -34,11 +34,11 @@ if(!$video->visible) {
 }
 
 if(isset($_POST['submit'])) {
-  $author = trim($_POST['author']);
-  $author_email = trim($_POST['author_email']);
-  $body = trim($_POST['body']);
+  $author = isset($_POST['author']) ? trim($_POST['author']) : '';
+  $author_email = isset($_POST['author_email']) ? trim($_POST['author_email']) : '';
+  $body = isset($_POST['body']) ? trim($_POST['body']) : '';
 
-  $new_comment = CommentOnEmbedXternal::make($video->id, $author_email, $author, $body);
+  $new_comment = CommentOnVideo::make($video->id, $author_email, $author, $body);
 
   if($new_comment && $new_comment->save()) {
  
@@ -105,7 +105,7 @@ include_layout_template('header.php');
       </tr>
       <tr>
         <td>Your email (is only for our admin's use):</td>
-        <td><input type="text" name="author" value="<?php echo htmlentities($author_email); ?>" /></td>
+        <td><input type="text" name="author_email" value="<?php echo htmlentities($author_email); ?>" /></td>
       </tr>
       <tr>
         <td>Your comment:</td>
