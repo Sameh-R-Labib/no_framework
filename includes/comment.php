@@ -41,8 +41,11 @@ class Comment extends DatabaseObject {
   public static function quantity($photograph_id=0) {
     global $database;
     $sql = "SELECT COUNT(*) FROM ".static::$table_name;
-    $sql .= " WHERE photograph_id=".$database->escape_value($photograph_id);
-    return static::find_by_sql($sql);
+    $sql .= " WHERE `photograph_id`=".$database->escape_value($photograph_id);
+    
+    $result_set = $database->query($sql);
+    $result_array = $database->fetch_array($result_set);
+    return !empty($result_array) ? array_shift($result_array) : false;
   }
 
 
