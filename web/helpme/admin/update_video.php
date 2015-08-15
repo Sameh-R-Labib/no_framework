@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 	$newEEC->id = $id;
 
 	// UPDATE THAT OBJECT
-	if ($newEEC->update()) {
+	if ($newEEC->save()) {
 		$session->message("Your embed was updated in the database.");
 		redirect_to("update_embedxternal.php?id=".$id);
 	} else {
