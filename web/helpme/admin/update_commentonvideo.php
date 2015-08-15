@@ -119,26 +119,6 @@ if($visible_comment) {
 	$checkbox = '<input type="checkbox" name="visible_comment" value="1" />';
 }
 
-
-$checkbox = htmlentities($checkbox);
-echo "visible_comment={$visible_comment}";
-echo '<br />';
-echo "checkbox={$checkbox}";
-echo '<br />';
-echo "id={$id}";
-echo '<br />';
-echo "video_id={$video_id}";
-echo '<br />';
-echo "author={$author}";
-echo '<br />';
-echo "author_email={$author_email}";
-echo '<br />';
-echo "body={$body}";
-die('an early death')
-
-
-
-
 ?>
 
 <form action="update_commentonvideo.php" method="post">
