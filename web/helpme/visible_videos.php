@@ -14,7 +14,7 @@ $vv_page_number = ($session->visible_videos_page_number()) ? $session->visible_v
 // If $_GET['page'] has a valid page number use that page number instead.
 // Otherwise, use $vv_page_number as the page number.
 $visible_videos_page_number = !empty($_GET['page']) ? (int)$_GET['page'] : $vv_page_number;
-$per_page = 2;
+$per_page = 4;
 $count_of_visible_videos = EmbedXternal::count_of_visible_videos();
 
 $pagination = new Pagination($visible_videos_page_number, $per_page, $count_of_visible_videos);
@@ -34,8 +34,10 @@ $session->visible_videos_page_number($visible_videos_page_number);
 include_layout_template('header.php');
 foreach($videos as $video):
 ?>
-  <div style="float: left; margin-left: 20px;">
-    <div><a href="video.php?id=<?php echo htmlentities($video->id); ?>"><?php echo htmlentities($video->route_for_page); ?></a></div>
+  <div style="margin-left: 20px;">
+    <div>
+      <a href="video.php?id=<?php echo htmlentities($video->id); ?>"><?php echo htmlentities($video->route_for_page); ?></a>
+    </div>
     <p><?php echo strip_tags($video->caption, '<a><strong><em><p>'); ?></p>
   </div>
 <?php
