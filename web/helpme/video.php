@@ -38,7 +38,7 @@ if(isset($_POST['submit'])) {
   $author_email = isset($_POST['author_email']) ? trim($_POST['author_email']) : '';
   $body = isset($_POST['body']) ? trim($_POST['body']) : '';
 
-  $new_comment = CommentOnVideo::make($video->id, $author_email, $author, $body);
+  $new_comment = CommentOnVideo::make($video->id, $author, $author_email, $body);
 
   if($new_comment && $new_comment->save()) {
  
