@@ -124,7 +124,7 @@ if($visible) {
 	$checkbox = '<input type="checkbox" name="visible" value="1" />';
 }
 ?>
-<form action="update_embedxternal.php" method="post">
+<form action="update_video.php" method="post">
 	<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>" />
   <table>
     <tr>
