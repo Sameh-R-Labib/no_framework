@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 	$comment->id = $id;
   
 	// UPDATE THAT OBJECT
-	if ($comment->update()) {
+	if ($comment->save()) {
 		$session->message("The CommentOnVideo was updated in the database.");
 		redirect_to("update_commentonvideo.php?id=".$id);
 	} else {
