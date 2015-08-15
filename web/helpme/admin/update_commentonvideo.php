@@ -142,7 +142,7 @@ if($visible_comment) {
 			<td><?php echo $checkbox; ?></td>
 		</tr>
 		<tr>
-			<td>Comment can have &lt;a&gt;&lt;strong&gt;&lt;em&gt;&lt;p&gt;</td>
+			<td>Comment - some html ok</td>
 			<td><textarea name="body" maxlength="3500" cols="70" rows="2"><?php echo strip_tags($body, '<a><strong><em><p>'); ?></textarea></td>
 		</tr>
     <tr>
