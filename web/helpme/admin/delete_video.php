@@ -24,13 +24,13 @@ if(!$video) {
   redirect_to('../index.php');
 }
 
-// Destroy record for video
-if($video->destroy()) {
-	// Video was destroyed
+// Delete record for video
+if($video->delete()) {
+	// Video was deleted
 	$session->message("The video ".$video->route_for_page." was deleted.");
 	redirect_to('list_videos.php');
 } else {
-	// Video was not destroyed
+	// Video was not deleted
 	$session->message("The video embed code could not be deleted.");
 	redirect_to('list_videos.php');
 }
