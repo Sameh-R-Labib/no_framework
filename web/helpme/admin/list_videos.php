@@ -54,4 +54,8 @@ foreach($videos as $video):
 endforeach;
 ?>
 </table>
-<br />
+
+<?php
+// SHOW BOTTOM OF THE PAGE
+include_layout_template('admin_footer.php');
+?>
