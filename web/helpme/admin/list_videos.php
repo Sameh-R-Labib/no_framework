@@ -40,7 +40,7 @@ include_layout_template('admin_header.php');
 foreach($videos as $video):
 ?>
   <tr>
-    <td><a href="video.php?id=<?php echo $video->id; ?>"><?php echo htmlentities($video->route_for_page); ?></a></td>
+    <td><a href="../video.php?id=<?php echo $video->id; ?>"><?php echo htmlentities($video->route_for_page); ?></a></td>
     <td><?php echo strip_tags($video->caption, '<a><strong><em><p>'); ?></td>
     <td><?php echo $video->visible ? 'visible' : 'hidden'; ?></td>
     <td><?php echo htmlentities($video->author); ?></td>
