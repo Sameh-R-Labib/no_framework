@@ -25,6 +25,18 @@ class Session {
       return $this->message;
     }
   }
+  
+  /**
+   * 
+   */
+  public function user_id() {
+    if (!empty($this->user_id)) {
+      return $this->user_id;
+    } else {
+      return false;
+    }
+  }
+
 
 
   /**

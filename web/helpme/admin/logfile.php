@@ -10,7 +10,7 @@ $logfile = LOGS_PATH.DS.'log.txt';
 if ( isset($_GET['clear']) && $_GET['clear'] == 'true') {
   file_put_contents($logfile, '');
   // Add the first log entry
-  log_action('Logs Cleared', "by User ID {$session->user_id}");
+  log_action('Logs Cleared', "by User ID {$session->user_id()}");
   // redirect to this same page so that the URL won't 
   // have "clear=true" anymore
   redirect_to('logfile.php');
