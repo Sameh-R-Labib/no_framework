@@ -108,7 +108,7 @@ if(!empty($_GET['id'] && is_numeric($_GET['id']))) {
 // SHOW TOP OF THE PAGE
 include_layout_template('admin_header.php');
 ?>
-<a href="index.php">&laquo; Back</a><br /><br />
+<a href="list_videos.php">&laquo; Back</a><br /><br />
 <h2>Update This Video Embed Record</h2>
 
 <?php
