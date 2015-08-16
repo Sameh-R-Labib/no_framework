@@ -88,14 +88,16 @@ $comments = $video->visible_comments();
 		</tr>
   </table>
   <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button"
     data-key="<?php echo $myStripePubKey; ?>"
-    data-amount="3000"
+    data-amount="700"
     data-name="BusCompanyX.com"
     data-description="by SAMEH R LABIB, LLC"
     data-image="/images/USA.png"
-    data-label="Test the payment system"
-    data-zip-code="true">
+    data-label="Fund this Endeavor"
+    data-zip-code="true"
+  >
   </script>
 </form>
 

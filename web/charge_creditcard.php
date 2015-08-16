@@ -19,10 +19,10 @@ $token = $_POST['stripeToken'];
 // Create the charge on Stripe's servers - this will charge the user's card
 try {
 $charge = \Stripe\Charge::create(array(
-  "amount" => 3000, // amount in cents, again
+  "amount" => 700, // amount in cents, again
   "currency" => "usd",
   "source" => $token,
-  "description" => "Example charge")
+  "description" => "Funds from a patron using welcome page")
 );
 } catch(\Stripe\Error\Card $e) {
   // The card has been declined
