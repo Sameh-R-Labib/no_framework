@@ -71,15 +71,15 @@ $comments = $video->visible_comments();
       <td height="30"><input type="text" name="author_email" maxlength="79" value="" /></td>
     </tr>
     <tr>
-      <td height="65">Your comment about my video (some html ok)</td>
-      <td height="65"><textarea name="body" maxlength="3500" cols="52" rows="3"></textarea></td>
+      <td height="60">Your comment about my video (some html ok)</td>
+      <td height="60"><textarea name="body" maxlength="3500" cols="52" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td height="65">Your video's embed code</td>
-      <td height="65"><textarea name="embed_code" maxlength="3500" cols="52" rows="3"></textarea></td>
+      <td height="60">Your video's embed code</td>
+      <td height="60"><textarea name="embed_code" maxlength="3500" cols="52" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td height="30">Caption for your video (some html ok)</td>
+      <td height="30">Caption for video (some html ok)</td>
       <td height="30"><input type="text" name="caption" maxlength="139" value="" /></td>
     </tr>
 		<tr>
