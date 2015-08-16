@@ -56,7 +56,9 @@ $comments = $video->visible_comments();
 
 <h3>Your Feedback</h3>
 
-<p>For a small fee enter a comment, video, or both. The topic must be relevant. Your content will appear only after it's approved.</p>
+<p>For a small fee enter a comment, video, or both. The topic must be relevant. Your content will appear only after it's approved. You don't have to fill out all the form fields.</p>
+
+<p>To submit a video you will need to make a screen cast then upload it to YouTube. YouTube will give you the embed code. I use ScreenFlow (mac only) to make screen casts. See YouTube for tutorials on how to make screen casts.</p>
 
 <form action="charge_creditcard.php" method="POST">
   <table>
@@ -106,10 +108,10 @@ $comments = $video->visible_comments();
 <script>
 SupportKit.init({
   appToken: '3xsxvwci5p649stp0yi1by8dl',
-  givenName: 'App developer',
-  surname: 'Sam',
-  email: 'schoolbuscompany@gmail.com',
-  properties: {'jobTitle': 'business owner'}
+  givenName: 'BusCompanyX.com User',
+  surname: 'Anonymous',
+  email: 'user@gmail.com',
+  properties: {'jobTitle': 'funding contributor'}
 });
 </script>
 
