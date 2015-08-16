@@ -41,6 +41,7 @@ class EmbedXternal extends DatabaseObject {
     return array_shift($row);
   }
   
+  
   /**
    * Count of comments for this EmbedXternal.
    */

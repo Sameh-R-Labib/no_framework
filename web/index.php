@@ -35,49 +35,6 @@ echo $video->embed_code;
 $comments = $video->visible_comments();
 ?>
 
-<p>For a small fee you can enter a comment and/or add a video. The topic must be constructive and relevant to this project. Your content will display if/when approved.</p>
-
-<form action="charge_creditcard.php" method="POST">
-  <table>
-  <col width="280">
-  <col width="400">
-    <tr>
-      <td height="50">Full Name (real name please)</td>
-      <td height="50"><input type="text" name="author" maxlength="39" value="" /></td>
-    </tr>
-    <tr>
-      <td height="50">Author Email (won't apear in post)</td>
-      <td height="50"><input type="text" name="author_email" maxlength="79" value="" /></td>
-    </tr>
-    <tr>
-      <td height="75">Your comment about the video above (some html tags are ok)</td>
-      <td height="75"><textarea name="body" maxlength="3500" cols="52" rows="3"></textarea></td>
-    </tr>
-    <tr>
-      <td height="75">The Embed Code for your video</td>
-      <td height="75"><textarea name="embed_code" maxlength="3500" cols="52" rows="3"></textarea></td>
-    </tr>
-    <tr>
-      <td height="50">Caption for Video (some html tags are ok)</td>
-      <td height="50"><input type="text" name="caption" maxlength="139" value="" /></td>
-    </tr>
-		<tr>
-			<td height="50">A Title for Your Video (don't use html tags)</td>
-			<td height="50"><input type="text" name="route_for_page" maxlength="255" value="" /></td>
-		</tr>
-  </table>
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<?php echo $myStripePubKey; ?>"
-    data-amount="3000"
-    data-name="BusCompanyX.com"
-    data-description="by SAMEH R LABIB, LLC"
-    data-image="/images/USA.png"
-    data-label="Test the payment system"
-    data-zip-code="true">
-  </script>
-</form>
-
 <h3>Comments</h3>
 
 <div id="comments">
@@ -96,6 +53,51 @@ $comments = $video->visible_comments();
   <?php endforeach; ?>
   <?php if(empty($comments)) { echo "No Comments yet!"; } ?>
 </div>
+
+<h3>Your Feedback</h3>
+
+<p>For a small fee enter a comment, video, or both. The topic must be relevant. Your content will appear only after it's approved.</p>
+
+<form action="charge_creditcard.php" method="POST">
+  <table>
+  <col width="242">
+  <col width="400">
+    <tr>
+      <td height="50">Full Name (real name)</td>
+      <td height="50"><input type="text" name="author" maxlength="39" value="" /></td>
+    </tr>
+    <tr>
+      <td height="50">Author Email (won't apear)</td>
+      <td height="50"><input type="text" name="author_email" maxlength="79" value="" /></td>
+    </tr>
+    <tr>
+      <td height="75">Your comment about my video (some html ok)</td>
+      <td height="75"><textarea name="body" maxlength="3500" cols="52" rows="3"></textarea></td>
+    </tr>
+    <tr>
+      <td height="75">Your video's embed code</td>
+      <td height="75"><textarea name="embed_code" maxlength="3500" cols="52" rows="3"></textarea></td>
+    </tr>
+    <tr>
+      <td height="50">Caption for your video (some html ok)</td>
+      <td height="50"><input type="text" name="caption" maxlength="139" value="" /></td>
+    </tr>
+		<tr>
+			<td height="50">A Title for Your Video (no html)</td>
+			<td height="50"><input type="text" name="route_for_page" maxlength="255" value="" /></td>
+		</tr>
+  </table>
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<?php echo $myStripePubKey; ?>"
+    data-amount="3000"
+    data-name="BusCompanyX.com"
+    data-description="by SAMEH R LABIB, LLC"
+    data-image="/images/USA.png"
+    data-label="Test the payment system"
+    data-zip-code="true">
+  </script>
+</form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="https://cdn.supportkit.io/supportkit.min.js"></script>

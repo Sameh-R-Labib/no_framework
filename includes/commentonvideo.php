@@ -46,7 +46,7 @@ class CommentOnVideo extends DatabaseObject {
     global $database;
     $sql = "SELECT * FROM ".static::$table_name;
     $sql .= " WHERE video_id=".$database->escape_value($video_id);
-    $sql .= " ORDER BY current_time ASC";
+    $sql .= " ORDER BY current_time DESC";
     return static::find_by_sql($sql);
   }
   
@@ -59,7 +59,7 @@ class CommentOnVideo extends DatabaseObject {
     $sql = "SELECT * FROM ".static::$table_name;
     $sql .= " WHERE `video_id`=".$database->escape_value($video_id);
     $sql .= " AND `visible_comment`=1";
-    $sql .= " ORDER BY `current_time` ASC";
+    $sql .= " ORDER BY `current_time` DESC";
     return static::find_by_sql($sql);
   }
 
