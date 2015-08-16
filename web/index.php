@@ -56,9 +56,7 @@ $comments = $video->visible_comments();
 
 <h3>Your Feedback</h3>
 
-<p>For a small fee enter a comment, video, or both. The topic must be relevant. Your content will appear only after it's approved. You don't have to fill out all the form fields.</p>
-
-<p>To submit a video you will need to make a screen cast then upload it to YouTube. YouTube will give you the embed code. I use ScreenFlow (mac only) to make screen casts. See YouTube for tutorials on how to make screen casts.</p>
+<p>&Fopf;or a small fee you can enter a comment, video, or both. The topic must be relevant. Your content will appear only after it is approved. You don't have to fill out *all* the form fields. To submit a video you'll need to make a screen cast; Then upload it to YouTube. Afterwards, you can get the embed code from YouTubes Share feature. I use ScreenFlow (mac only) to make screen casts. YouTube has tutorials on how to make screen casts and many other interesting things! Thanks in advance&iinfin;</p>
 
 <form action="charge_creditcard.php" method="POST">
   <table>
