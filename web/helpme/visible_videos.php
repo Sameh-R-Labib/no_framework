@@ -32,8 +32,14 @@ $videos = EmbedXternal::find_by_sql($sql);
 $session->visible_videos_page_number($visible_videos_page_number);
 
 include_layout_template('header.php');
+?>
+
+<h2>Videos w/ ideas for App</h2>
+
+<?php
 foreach($videos as $video):
 ?>
+
   <div style="margin-left: 20px;">
     <div>
       <a href="video.php?id=<?php echo htmlentities($video->id); ?>"><?php echo htmlentities($video->route_for_page); ?></a>
