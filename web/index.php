@@ -111,5 +111,11 @@ SupportKit.init({
 });
 </script>
 
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 
 <?php include_layout_template('home_footer.php'); ?>
