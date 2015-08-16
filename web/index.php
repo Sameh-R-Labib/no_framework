@@ -63,28 +63,28 @@ $comments = $video->visible_comments();
   <col width="242">
   <col width="400">
     <tr>
-      <td height="50">Full Name (real name)</td>
-      <td height="50"><input type="text" name="author" maxlength="39" value="" /></td>
+      <td height="30">Full Name (real name)</td>
+      <td height="30"><input type="text" name="author" maxlength="39" value="" /></td>
     </tr>
     <tr>
-      <td height="50">Author Email (won't apear)</td>
-      <td height="50"><input type="text" name="author_email" maxlength="79" value="" /></td>
+      <td height="30">Author Email (won't apear)</td>
+      <td height="30"><input type="text" name="author_email" maxlength="79" value="" /></td>
     </tr>
     <tr>
-      <td height="75">Your comment about my video (some html ok)</td>
-      <td height="75"><textarea name="body" maxlength="3500" cols="52" rows="3"></textarea></td>
+      <td height="65">Your comment about my video (some html ok)</td>
+      <td height="65"><textarea name="body" maxlength="3500" cols="52" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td height="75">Your video's embed code</td>
-      <td height="75"><textarea name="embed_code" maxlength="3500" cols="52" rows="3"></textarea></td>
+      <td height="65">Your video's embed code</td>
+      <td height="65"><textarea name="embed_code" maxlength="3500" cols="52" rows="3"></textarea></td>
     </tr>
     <tr>
-      <td height="50">Caption for your video (some html ok)</td>
-      <td height="50"><input type="text" name="caption" maxlength="139" value="" /></td>
+      <td height="30">Caption for your video (some html ok)</td>
+      <td height="30"><input type="text" name="caption" maxlength="139" value="" /></td>
     </tr>
 		<tr>
-			<td height="50">A Title for Your Video (no html)</td>
-			<td height="50"><input type="text" name="route_for_page" maxlength="255" value="" /></td>
+			<td height="30">A Title for Your Video (no html)</td>
+			<td height="30"><input type="text" name="route_for_page" maxlength="255" value="" /></td>
 		</tr>
   </table>
   <script
