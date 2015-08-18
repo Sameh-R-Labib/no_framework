@@ -11,7 +11,7 @@ include_layout_template('home_header.php');
 
 // Link to user contributed videos
 ?>
-<a href="fb_login.php">Login (using Facebook)</a> | <a href="privacy_policy.html">Privacy policy</a> | <a href="tos.html">Terms of Service</a> | <a href="helpme/visible_videos.php">Feature wish list videos for BusCompanyX.com functionality &raquo;</a>
+<a href="fb_login.php">Login (using Facebook)</a> | <a href="privacy_policy.php">Privacy policy</a> | <a href="tos.php">Terms of Service</a> | <a href="helpme/visible_videos.php">Feature wish list videos for BusCompanyX.com functionality &raquo;</a>
  || <a href="helpme/admin/index.php">admin &raquo;</a><br /><br />
 
 <h2>Welcome Page</h2>

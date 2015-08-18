@@ -1,4 +1,15 @@
-<h1>Terms of Service ("Terms")</h1>
+<?php
+require('../includes/initialize.php');
+
+include_layout_template('home_header.php');
+?>
+
+<h2>Terms of Service ("Terms")</h2>
+
+<?php echo output_message($message); ?>
+
+<a href="index.php">&laquo; Welcome Page</a><br />
+
 <p>Last updated: August 17, 2015</p>
 
 <p>Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the https://buscompanyx.com/ website (the "Service") operated by SAMEH R LABIB, LLC ("us", "we", or "our").</p>
@@ -113,3 +124,8 @@
 <p><strong>Contact Us</strong></p>
 
 <p>If you have any questions about these Terms, please contact us.</p>
+
+
+<?php
+include_layout_template('home_footer.php');
+?>

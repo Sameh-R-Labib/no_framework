@@ -1,3 +1,15 @@
+<?php
+require('../includes/initialize.php');
+
+include_layout_template('home_header.php');
+?>
+
+<h2>Privacy Policy</h2>
+
+<?php echo output_message($message); ?>
+
+<a href="index.php">&laquo; Welcome Page</a><br />
+
 <p>This Privacy Policy governs the manner in which SAMEH R LABIB, LLC collects, uses, maintains and discloses information collected from users (each, a "User") of the <a href="https://buscompanyx.com/">https://buscompanyx.com/</a> website ("Site"). This privacy policy applies to the Site and all products and services offered by SAMEH R LABIB, LLC.</p>
 
 <h3>Personal identification information</h3>
@@ -77,3 +89,7 @@
 <p>If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us.</p>
 
 <p>This document was last updated on August 17, 2015</p>
+
+<?php
+include_layout_template('home_footer.php');
+?>

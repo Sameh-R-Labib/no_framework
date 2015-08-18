@@ -127,7 +127,7 @@ if($flagged) {
 
 <?php echo output_message($message); ?>
 
-<a href="index.php">&laquo; Home Page</a><br />
+<a href="index.php">&laquo; Welcome Page</a><br />
 
 <?php
   include_layout_template('home_footer.php');
